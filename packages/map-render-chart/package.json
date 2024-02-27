@@ -33,7 +33,11 @@
     "lint:fix": "npx eslint --fix src/**/*.ts extension-src/**/*.ts",
     "lint:dist": "echo 'It might take a while. Please wait ...' && npx jshint --config .jshintrc-dist dist/echarts.js"
   },
-  "keywords": [],
+  "keywords": [
+    "map",
+    "geoJson",
+    "chart"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

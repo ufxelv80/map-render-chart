@@ -89,6 +89,9 @@ class Map {
     this._init()
   }
 
+  // 注册地图
+  registerMap() {}
+
   _init(): void {
     this.transform = new Transform(this._container!, this._adcode)
     this._getAdcodeBoundary()

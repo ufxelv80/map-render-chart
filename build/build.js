@@ -6,6 +6,7 @@ const { buildDTS } = require("./build-ts");
 const chalk = require("chalk");
 const fs = require("fs");
 const transformDEV = require("./transform-dev");
+const path = require("node:path");
 
 function checkBundleCode(cfg) {
   // Make sure process.env.NODE_ENV is eliminated.
@@ -105,7 +106,24 @@ function run () {
       format: type
     })
   );
-  build(cfgs);
+  build(cfgs).then(() => {
+    // 检查dist目录下是否存在 style 文件夹，不存在则创建
+    if (!fs.existsSync(path.resolve(rootPath, 'dist/style'))) {
+      fs.mkdirSync(path.resolve(rootPath, 'dist/style'))
+    }
+    // 复制根目录下的css文件到dist目录下
+    const files = fs.readdirSync(path.resolve(rootPath, 'src/style'))
+    files.forEach(file => {
+      const filePath = path.resolve(rootPath, 'src/style', file)
+      const distPath = path.resolve(rootPath, 'dist/style', file)
+      // console.log('filePath', filePath)
+      // console.log('distPath', distPath)
+      const fileData = fs.readFileSync(filePath, { encoding: 'utf-8' })
+      // 去除 fileData 的所有空格
+      const newFileData = fileData.replace(/\s*/g, '')
+      fs.writeFileSync(distPath, newFileData, { encoding: 'utf-8' })
+    })
+  })
 }
 async function main () {
    await buildDTS()

@@ -9,6 +9,8 @@ lerna-debug.log*
 *.zip
 pre-publish-tmp/
 types/
+bound-json/
+full-json/
 
 node_modules
 dist

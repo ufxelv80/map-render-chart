@@ -21,7 +21,7 @@ function createOutputs(basename, { min }, commonOutputOpts) {
   const output = [{
     ...commonOutputOpts,
     // Disable sourcemap in
-    sourcemap: false,
+    sourcemap: true,
     plugins: [
       createReplacePlugin('development')
       // createAddLicensePlugin(true)

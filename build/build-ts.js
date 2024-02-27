@@ -49,13 +49,13 @@ const compileWorkList = [
       fsExtra.removeSync(tmpDir);
       fsExtra.removeSync(nodePath.resolve(rootPath, 'types'));
       fsExtra.removeSync(nodePath.resolve(rootPath, esmDir));
-      fsExtra.removeSync(nodePath.resolve(rootPath, 'index.js'));
+      fsExtra.removeSync(nodePath.resolve(rootPath, 'index.ts'));
       fsExtra.removeSync(nodePath.resolve(rootPath, 'index.blank.js'));
       fsExtra.removeSync(nodePath.resolve(rootPath, 'index.common.js'));
       fsExtra.removeSync(nodePath.resolve(rootPath, 'index.simple.js'));
     },
     after: async function () {
-      fs.renameSync(nodePath.resolve(tmpDir, 'src/index.js'), nodePath.resolve(rootPath, 'index.js'));
+      fs.renameSync(nodePath.resolve(tmpDir, 'src/index.ts'), nodePath.resolve(rootPath, 'index.ts'));
     }
   },
   {
