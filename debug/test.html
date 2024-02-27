@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="../src/style/map-render-gl.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        #app {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+<!--    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.5.0/axios.js"></script>-->
+        <script src="../packages/map-render-chart/dist/index.global.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+
+<script type="module">
+    // mapRenderGL.drawLine(document.getElementById('app'))
+    // import mapRenderGL, { Marker, Icon, Size } from "../dist/index.js";
+
+    async function initMap() {
+      const map = new mapRenderGL.Map({
+        container: document.getElementById('app'),
+        adcode: 530000,
+        scale: 0.8,
+        style: {
+          fill: '#ccc',
+          stroke: '#999',
+          lineWidth: 1,
+          lineJoin: 'round'
+        },
+        boundBox: {
+          show: true,
+          level: 3
+        }
+      })
+      map.on('click', (e) => {
+        console.log('main', e)
+      })
+
+      map.on('mousemove', (e) => {
+        map.addTooltip(() => {
+          return `<div class='wrapper'>
+      <span>${ JSON.stringify(e.centroid) }</span>
+    </div>`
+        }, {
+          top: e.event.offsetY,
+          left: e.event.offsetX,
+          offsetX: 10,
+          offsetY: 10
+        })
+      })
+
+      const myIcon = new mapRenderGL.Icon({
+        url: './src/assets/images/logo.png',
+        size: new mapRenderGL.Size(15, 15)
+      })
+      const marker = new mapRenderGL.Marker({
+        center: [100.2864007892954, 22.792575054878046],
+        geoType: 'geo',
+        icon: myIcon,
+      })
+
+
+      const marker2 = new mapRenderGL.Marker({
+        center: [103.00001678413818, 24.9466684317423],
+        geoType: 'geo',
+        icon: myIcon,
+      })
+
+      map.addMarker(marker, marker2)
+
+      map.on('mouseout', () => {
+        map.removeTooltip('hide')
+      })
+
+      window.addEventListener('resize', () => {
+        map.resize()
+      })
+    }
+
+    initMap()
+</script>
+</body>
+</html>

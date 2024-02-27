@@ -1,0 +1,8 @@
+.map-render-tooltip-wrapper {
+    position: fixed;
+
+  z-index: 9999999;
+  /*transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s, visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s;*/
+  top: 0;
+  left: 0;
+}
