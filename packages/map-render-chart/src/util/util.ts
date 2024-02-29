@@ -1,6 +1,7 @@
 import { ZRenderType } from 'zrender'
 import * as zrender from 'zrender'
-import Path from "zrender/lib/graphic/Path";
+import Path, {PathProps} from "zrender/lib/graphic/Path";
+import {BoundGeoJson} from "../typing/GeoJson";
 export function createElement<T extends keyof HTMLElementTagNameMap> (type: T, className?: string, container?: HTMLElement): HTMLElementTagNameMap[T] {
   const el = document.createElement(type)
   if (className) el.className = className
@@ -45,10 +46,44 @@ export function createPolygon (params: createPolygonParams): {
   })
 }
 
-// // 用法示例
-// const debouncedMouseMove = debounce(function(event) {
-//   console.log('Mouse coordinates:', event.clientX, event.clientY);
-// }, 200);
-//
-// document.addEventListener('mousemove', debouncedMouseMove);
+interface ForEachBoundGeoJsonParams {
+  geoJson: BoundGeoJson
+  callback(path: number[]):  Path<PathProps>
+}
+
+// geoJson 数据遍历操作
+export function forEachBoundGeoJson (geoJson: BoundGeoJson):  number[][][] {
+  const pathArray: number[][][] = []
+  geoJson.features.forEach((feature) => {
+    const dimension = getArrayDimension(feature.geometry.coordinates)
+    if (dimension === 3) {
+      const coords = feature.geometry.coordinates as number[][][]
+      coords.forEach((coords) => {
+        pathArray.push(coords)
+      })
+    }
+    if (dimension === 4) {
+      const coords = feature.geometry.coordinates as number[][][][]
+      coords.forEach((coords) => {
+        coords.forEach((coord) => {
+          pathArray.push(coord)
+        })
+      })
+    }
+  })
+  return pathArray
+}
+
+function getArrayDimension(arr: any): number {
+  if (!Array.isArray(arr)) {
+    return 0; // 不是数组
+  }
+  let maxDimension = 0;
+  for (const item of arr) {
+    // 递归地检查每个元素
+    const dimension = getArrayDimension(item);
+    maxDimension = Math.max(maxDimension, dimension);
+  }
+  return 1 + maxDimension; // 当前数组层级加上子数组的最大深度
+}
 

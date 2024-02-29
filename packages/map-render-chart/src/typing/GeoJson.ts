@@ -1,28 +1,42 @@
+export type Coordinates = number[][][][] | number[][][]
 export interface Features {
-  geometry: {
-    coordinates: number[][][] | number[][]
-  }
+  type: string
   properties: {
-    adcode: number
-    name: string
-    center: number[]
     code: number
-  }
-  type: string
-}
-
-export interface BoundGeoJson {
-  type: string
-  features: {
-    type: string
-    geometry: {
-      coordinates: number[][][] | number[][]
-      type: string
+    "adcode": number
+    "name": string
+    "center": number[]
+    "centroid": number[]
+    "childrenNum": 0,
+    "level": string
+    "parent"?: {
+      "adcode": number
     },
-    properties: any
-  }[]
+    "subFeatureIndex"?: number
+    "acroutes"?: number[]
+    filename?: string
+    fullname?: string
+    bbox?: number[][]
+    offset?: number[]
+  }
+  geometry: {
+    type: string
+    coordinates: Coordinates
+  }
 }
 
 export interface AdcodeBoundaryGeoJson {
+  features: Features[]
+}
+export interface BoundGeoJson {
+  type: string
+  features: Features[]
+  propertity?: {
+    code: number
+  }
+}
+
+export interface AdministrativeAreaGeoJson {
+  type: string
   features: Features[]
 }

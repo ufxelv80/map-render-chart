@@ -41,9 +41,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vue/reactivity": "^3.3.11",
-    "@vue/runtime-core": "^3.3.11",
-    "axios": "^1.6.2",
     "zrender": "5.4.1"
   }
 }

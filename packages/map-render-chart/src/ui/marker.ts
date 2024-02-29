@@ -2,7 +2,6 @@ import {MarkerEventKey, MarkerOptions} from "../typing/Marker";
 import type Transformer from "../geo/transform";
 import Circle from 'zrender/lib/graphic/shape/Circle';
 import {ElementEvent} from "zrender";
-import {Ref, ref} from "@vue/reactivity";
 import Group from "zrender/lib/graphic/Group";
 import Icon from "./icon";
 
@@ -10,9 +9,8 @@ class Marker {
   private readonly _center: [number, number]
   private readonly _type: 'pixel' | 'geo' = 'pixel'
   private transform: Transformer;
-  private _coords: Ref<{ x: number; y: number }>
+  private _coords: { x: number; y: number }
   private _scale: number;
-  private _adcode: number;
   private group: Group;
   private readonly icon: Icon | undefined = undefined
 
@@ -20,17 +18,17 @@ class Marker {
     this._center = options.center
     this._type = options.geoType || 'pixel'
     this.icon = options.icon
-    this._coords = ref({
+    this._coords = {
       x: 0,
       y: 0
-    })
+    }
   }
 
   _drawMarker(x: number, y: number): Circle {
     const circle = new Circle({
       shape: {
-        cx: this._coords.value.x,
-        cy: this._coords.value.y,
+        cx: this._coords.x,
+        cy: this._coords.y,
         r: 10
       },
       zlevel: 10,
@@ -45,8 +43,7 @@ class Marker {
     return circle
   }
 
-  _createMarker(transform: Transformer, scale: number, adcode: number, group: Group): void {
-    this._adcode = adcode
+  _createMarker(transform: Transformer, scale: number, group: Group): void {
     this.transform = transform
     this._scale = scale
     this.group = group
@@ -69,7 +66,7 @@ class Marker {
       this.group?.add(icon)
     } else {
       this._calculateOffset()
-      const marker = this._drawMarker(this._coords.value.x, this._coords.value.y)
+      const marker = this._drawMarker(this._coords.x, this._coords.y)
       marker.type = 'marker'
       this.group?.add(marker)
     }
@@ -81,19 +78,19 @@ class Marker {
   _calculateOffset() {
     if (this._type === 'geo') {
       const {x, y} = this.transform.calculateOffset(this._scale, this._center[0], this._center[1])
-      this._coords.value = {
+      this._coords = {
         x,
         y
       }
     } else {
       const {lng, lat} = this.transform.reverseCalculateOffset(this._scale, this._center[0], this._center[1])
       const {x, y} = this.transform.calculateOffset(this._scale, lng, lat)
-      this._coords.value = {
+      this._coords = {
         x,
         y
       }
     }
-    let marker = this._drawMarker(this._coords.value.x, this._coords.value.y)
+    let marker = this._drawMarker(this._coords.x, this._coords.y)
     marker.type = 'marker'
     this.group?.add(marker)
   }

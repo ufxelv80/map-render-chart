@@ -1,9 +1,12 @@
-import {AdcodeBoundaryGeoJson} from '../typing/GeoJson'
+import {AdministrativeAreaGeoJson, BoundGeoJson} from '../typing/GeoJson'
+import union from '@turf/union'
+import bbox from '@turf/bbox'
+import {forEachBoundGeoJson} from "../util/util";
 
 class Transform {
-  private readonly _adcode: number;
   private _width: number;
   private _height: number;
+  private geoJson: BoundGeoJson;
   boxBound: {
     minX: number
     minY: number
@@ -11,8 +14,7 @@ class Transform {
     maxY: number
   }
 
-  constructor(container: HTMLElement, adcode: number) {
-    this._adcode = adcode
+  constructor(container: HTMLElement) {
     this._width = container.offsetWidth
     this._height = container.offsetHeight
 
@@ -24,47 +26,38 @@ class Transform {
     }
   }
 
-  _getBounds(geoJson: AdcodeBoundaryGeoJson, type?: string): {
+  _getBounds(): {
     minX: number;
     minY: number;
     maxX: number;
     maxY: number
   } {
-    // 109.69328,18.164892
-    if (this._adcode === 100000 && !type) {
-      this.boxBound = {
-        minX: 73.508989,
-        minY: 18.164892,
-        maxX: 135.102112,
-        maxY: 53.569188
-      }
-    } else {
-      let minX = Infinity
-      let minY = Infinity
-      let maxX = -Infinity
-      let maxY = -Infinity
-      geoJson.features.forEach(feature => {
-        feature.geometry.coordinates.forEach(coords => {
-          coords.forEach(coord => {
-            if (Array.isArray(coord) && coord.length > 2) {
-              coord.forEach(item => {
-                minX = Math.min(minX, (item as unknown as number[])[0])
-                minY = Math.min(minY, (item as unknown as number[])[1])
-                maxX = Math.max(maxX, (item as unknown as number[])[0])
-                maxY = Math.max(maxY, (item as unknown as number[])[1])
-              })
-            } else {
-              minX = Math.min(minX, (coord as number[])[0])
-              minY = Math.min(minY, (coord as number[])[1])
-              maxX = Math.max(maxX, (coord as number[])[0])
-              maxY = Math.max(maxY, (coord as number[])[1])
-            }
-          })
-        })
-      })
-      this.boxBound = {minX, minY, maxX, maxY}
-    }
+    const bboxBound = bbox(this.geoJson)
+    this.boxBound = {minX: bboxBound[0], minY: bboxBound[1], maxX: bboxBound[2], maxY: bboxBound[3]}
     return this.boxBound
+  }
+
+  /**
+   * 提取边界值
+   * */
+  getGeoJsonBounds(geoJson: AdministrativeAreaGeoJson): BoundGeoJson {
+    const merged = geoJson.features.reduce((acc, feature) => {
+      if (!acc) return feature;
+      return union(acc as any, feature as any);
+    }, null);
+    const mergedJeoJson = {
+      type: geoJson.type,
+      features: [
+        {
+          type: geoJson.features[0].type,
+          properties: geoJson.features[0].properties,
+          geometry: merged.geometry
+        }
+      ]
+    }
+    // console.log(merged)
+    this.geoJson = mergedJeoJson
+    return mergedJeoJson
   }
 
   calculateOffset(mapScale: number, lng: number, lat: number): { x: number, y: number } {
@@ -86,7 +79,7 @@ class Transform {
     y: number,
     currentOffsetX = 0,
     currentOffsetY = 0
-    ) {
+  ) {
 
     const height = this._height;
     const width = this._width;
@@ -103,7 +96,7 @@ class Transform {
     // Reverse calculation to find longitude and latitude
     const lng = (x - offsetX) / scale + bounds.minX;
     const lat = bounds.maxY - (y - offsetY) / scale;
-    return { lng, lat };
+    return {lng, lat};
   }
 
 

@@ -18,7 +18,7 @@
     "vite-plugin-node-polyfills": "^0.17.0"
   },
   "dependencies": {
-    "echarts": "^5.5.0",
-    "map-render-json": "^0.0.1"
+    "@turf/turf": "^6.5.0",
+    "echarts": "^5.5.0"
   }
 }

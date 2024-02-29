@@ -1,57 +1,60 @@
 import {
   AddTooltipOptions,
-  BoundBoxOptions,
+  BoundBoxOptions, MapBgOpt,
   MapElementEvent,
   MapEventKey,
   // MapElementEvent,
   MapEventType,
-  MapOptions
+  MapOptions, MapProjectionLayerConfig
 } from '../typing/Map'
 import Transform from '../geo/transform'
-import {getAdcodeBoundary, getAdcodeGeoJson} from '../util/ajax'
-import {AdcodeBoundaryGeoJson, Features} from '../typing/GeoJson'
-import {createElement, createPolygon, storeAuthState} from '../util/util'
+import {AdministrativeAreaGeoJson, BoundGeoJson, Features} from '../typing/GeoJson'
+import {createElement, createPolygon, forEachBoundGeoJson, storeAuthState} from '../util/util'
 import * as zrender from 'zrender/lib/zrender'
 import Group from "zrender/lib/graphic/Group";
 import {ElementEvent, PathStyleProps, ZRenderType} from "zrender";
 import Path, {PathProps} from "zrender/lib/graphic/Path";
 import type Marker from "./marker";
-import { Ref, ref } from '@vue/reactivity'
-import {watch} from "@vue/runtime-core";
-import {initMapEvent} from "./map-events";
 import CoordinateAxis from "./coordinate-axis";
 import Circle from "zrender/lib/graphic/shape/Circle";
+import InitMapEvent from "./init-map-event";
+import ZRImage from "zrender/lib/graphic/Image";
 
 const defaultOptions: {
-  scale: number
+  zoom: number
+  minZoom: number
+  maxZoom: number
 } = {
-  scale: 1
+  zoom: 1,
+  minZoom: 0.3,
+  maxZoom: 5
 }
 
 class Map {
   private readonly _container: HTMLElement | null
   private transform: Transform | undefined;
-  private _adcode: number;
-  private _mapGeoJsonBound: Ref<AdcodeBoundaryGeoJson> | undefined;
-  protected _mapGeoJsonFull: AdcodeBoundaryGeoJson | undefined;
-  private group: Group | undefined;
+  private _mapGeoJsonBound: BoundGeoJson | undefined;
+  protected _mapGeoJsonFull: AdministrativeAreaGeoJson | undefined;
+  public group: Group | undefined;
   private coordinateAxisGroup: Group | undefined;
   private _scale: number
   private _eventMap: Set<{ [key in MapEventKey]?: (params: MapElementEvent) => void }>;
   private _zr: ZRenderType;
   private readonly _markers: Marker[];
-  private _oldAdcode: number | undefined
-  private readonly _style: PathStyleProps | undefined
+  private _style: PathStyleProps | undefined
   private _boundBox: BoundBoxOptions
   private readonly _level: number
-  private _initializeSuccess: Ref<boolean>
   private currentOffsetX: number;
   private currentOffsetY: number;
-  private _auxiliaryLine: boolean;
+  private readonly _auxiliaryLine: boolean;
+  private mapMoveEvent: InitMapEvent | undefined
+  private mapBg: string
+  private mapBgOpt: MapBgOpt
+  private _projectionLayerConfig: MapProjectionLayerConfig[] = []
 
   constructor(options: MapOptions) {
     options = Object.assign({}, defaultOptions, options)
-    this._scale = options.scale
+    this._scale = options.zoom
 
     if (typeof options.container === 'string') {
       this._container = window.document.getElementById(options.container)
@@ -66,10 +69,8 @@ class Map {
     }
 
     this._style = options.style
-    this._adcode = options.adcode
-    this._oldAdcode = void 0
     this._eventMap = new Set()
-    this._mapGeoJsonBound = ref<AdcodeBoundaryGeoJson | undefined>(void 0)
+    this._mapGeoJsonBound = void 0
     this._markers = []
     this._level = options.level || 1
     this.currentOffsetX = 0
@@ -85,28 +86,37 @@ class Map {
       },
       level: options.boundBox?.level ? options.boundBox?.level : options.level ? options.level + 1 : 2
     }
-    this._initializeSuccess = ref(false)
-    this._init()
+    this._setupCanvas()
+    // this._init()
   }
 
   // 注册地图
-  registerMap() {}
-
-  _init(): void {
-    this.transform = new Transform(this._container!, this._adcode)
-    this._getAdcodeBoundary()
+  registerMap(geoJson: AdministrativeAreaGeoJson) {
+    this.transform = new Transform(this._container!)
+    this._mapGeoJsonBound = this.transform.getGeoJsonBounds(geoJson)
+    this.transform._getBounds()
+    this._mapGeoJsonFull = geoJson
+    this._init()
   }
 
-  /**
-   * 获得行政区划边界
-   * */
-  async _getAdcodeBoundary(): Promise<void> {
-    this.group = new Group()
-    const res = await getAdcodeBoundary(this._adcode.toString())
-    const json = await res.json()
-    this._mapGeoJsonBound.value = json
-    this.transform && this.transform._getBounds(json)
-    this._setupCanvas()
+  _init(): void {
+    this._renderMap()
+    this.mapMoveEvent = new InitMapEvent({
+      zr: this._zr,
+      root: this.group,
+      scale: {
+        maxScale: 5,
+        minScale: 0.3
+      },
+      zoom: this._scale,
+      updateState: this._updateMapState.bind(this),
+      isEnableDragging: false,
+      isEnableScaling: false
+    })
+    this.mapMoveEvent.roamable()
+    this._projectionLayerConfig.forEach((item) => {
+      this._drawProjectionLayer(item)
+    })
   }
 
   /**
@@ -117,21 +127,28 @@ class Map {
     myZr.dom.style.background = '#eaeaea'
     this._zr = myZr
     this.coordinateAxisGroup = new Group()
+    this.group = new Group()
     myZr.add(this.group)
     myZr.add(this.coordinateAxisGroup)
     storeAuthState(myZr, true)
-    this._renderMap()
-    initMapEvent({
-      zr: myZr,
-      root: this.group,
-      scale: {
-        minScale: 0.3,
-        maxScale: 5
-      },
-      updateState: this._updateMapState.bind(this),
-      isEnableDragging: true,
-      isEnableScaling: true,
-    }).roamable()
+  }
+
+  /**
+   * 设置地图缩放等级
+   * */
+  setMapZoom(opt: { minZoom: number, maxZoom: number }): void {
+    this.mapMoveEvent.setMapZoom(opt)
+  }
+
+  enableScrollWheelZoom(status: boolean): void {
+    this.mapMoveEvent.enableScrollWheelZoom(status)
+  }
+
+  /**
+   * 启用鼠标拖拽
+   * */
+  enableDragging(status: boolean): void {
+    this.mapMoveEvent.enableDragging(status)
   }
 
   /**
@@ -148,17 +165,8 @@ class Map {
     this.currentOffsetX = state.offsetX
   }
 
-  async _getGeoJsonFull() {
-    if (!this._mapGeoJsonFull || this._oldAdcode !== this._adcode) {
-      this.group.removeAll()
-      this._oldAdcode = this._adcode
-      this._mapGeoJsonFull = await getAdcodeGeoJson<AdcodeBoundaryGeoJson>(this._adcode)
-      this._initializeSuccess.value = true
-    }
-  }
-
-  async _renderMap(): Promise<void> {
-    await this._getGeoJsonFull()
+  _renderMap() {
+    this.group.removeAll()
     this._mapGeoJsonFull && this._mapGeoJsonFull.features.forEach(feature => {
       feature.geometry.coordinates.forEach(coords => {
         if (Array.isArray(coords[0]) && coords[0].length > 2) {
@@ -169,7 +177,7 @@ class Map {
           })
         } else {
           if (feature.properties.name) {
-            this._instantiateMap(feature, coords as number[])
+            this._instantiateMap(feature, coords as unknown as number[])
           }
         }
       })
@@ -188,9 +196,51 @@ class Map {
     }
   }
 
+  setMapBackground(image: string, opt: MapBgOpt = {height: 0, width: 0, x: 0, y: 0}) {
+    if (!this._mapGeoJsonBound || !this._mapGeoJsonFull) {
+      throw new Error('[MapRender] Map is not registrationComplete. 【registerMap】 method must be called before setting style')
+    }
+    this.mapBg = image
+    this.mapBgOpt = opt
+    this._initMapBackground()
+  }
+  _initMapBackground() {
+    let BoundBox: ReturnType<typeof createPolygon>
+    BoundBox = createPolygon({
+      type: 'bg',
+      callback: (this.transform as Transform).calculateOffset.bind(this.transform, this._scale)
+    })
+    let boundBox: Path<PathProps>
+
+    const callback = (path: number[]) => {
+      boundBox = new BoundBox({
+        shape: {
+          path: path
+        }
+      })
+    }
+    const pathArray = forEachBoundGeoJson(this._mapGeoJsonBound).sort((a, b) => b.length - a.length)
+    callback(pathArray[0] as unknown as number[])
+    const rect = this.group.getBoundingRect()
+    const bg = new ZRImage({
+      style: {
+        image: this.mapBg,
+        x: this.mapBgOpt.x || rect.x,
+        y: this.mapBgOpt.y || rect.y,
+        width: this.mapBgOpt.width || rect.width,
+        height: this.mapBgOpt.height || rect.height
+      },
+      zlevel: 2
+    })
+    bg.getBoundingRect()
+    bg.type = 'mapBg'
+    bg.name = 'mapBg'
+    bg.setClipPath(boundBox)
+    this.group.add(bg)
+  }
+
   // 实例化 Map
   _instantiateMap(feature: Features, coord: number[]) {
-    this._initializeSuccess.value = false
     const style = this._style || {
       fill: '#fff',
       stroke: '#ccc',
@@ -200,7 +250,6 @@ class Map {
       callback: (this.transform as Transform).calculateOffset.bind(this.transform, this._scale)
     })
     const map = new Map({
-      // scaleX: this._adcode === 100000 ? 0.8 : 1,
       shape: {
         path: coord as number[]
       },
@@ -208,12 +257,12 @@ class Map {
       zlevel: this._level
     })
     map.type = 'map'
+    map.name = 'map'
     this.group && this.group.add(map)
 
     for (const type in MapEventType) {
       this.addEventListener(type.toLowerCase() as MapEventKey, map, feature)
     }
-    this._initializeSuccess.value = true
   }
 
   // 绘制地图中心点
@@ -243,25 +292,14 @@ class Map {
   }
 
   _renderBoundBox() {
-    this._initializeSuccess.value = false
-    if (!this._mapGeoJsonBound.value) return
-    this._mapGeoJsonBound.value && this._mapGeoJsonBound.value.features.forEach(feature => {
-      feature.geometry.coordinates.forEach(coords => {
-        const BoundBox = createPolygon({
-          type: 'boundBox',
-          callback: (this.transform as Transform).calculateOffset.bind(this.transform, this._scale)
-        })
-        const boundBox = new BoundBox({
-          shape: {
-            path: coords[0] as number[]
-          },
-          style: this._boundBox.style,
-          zlevel: this._boundBox.level
-        })
-        boundBox.type = 'boundBox'
-        this.group && this.group.add(boundBox)
-        this._initializeSuccess.value = true
-      })
+    if (!this._mapGeoJsonBound) return
+
+    this._mapAddLayer('boundBox', {
+      shape: {
+        path: [] as number[]
+      },
+      style: this._boundBox.style,
+      zlevel: this._boundBox.level
     })
 
     this._auxiliaryLine && this._drawCenterPoint()
@@ -287,13 +325,17 @@ class Map {
   resize(): void {
     this.transform && this.transform.setContainerHeight(this._container!.offsetHeight)
     this.transform && this.transform.setContainerWidth(this._container!.offsetWidth)
-    this.transform && this.transform._getBounds(this._mapGeoJsonBound.value)
+    this.transform && this.transform._getBounds()
     this._zr.resize({
       width: this._container!.offsetWidth,
       height: this._container!.offsetHeight
     })
     this.group.removeAll()
     this._renderMap()
+    this._initMapBackground()
+    this._projectionLayerConfig.forEach((item) => {
+      this._drawProjectionLayer(item)
+    })
     for (const marker of this._markers) {
       marker.update()
     }
@@ -325,32 +367,81 @@ class Map {
   }
 
   addMarker(...markers: Marker[]): void {
-    // console.log('addMarker', markers)
-    watch(() => this._mapGeoJsonBound.value, (val) => {
-      if (val) {
-        markers.forEach((marker) => {
-          this._markers.push(marker)
-          marker._createMarker(this.transform, this._scale, this._adcode, this.group)
-        })
-      }
-    }, {deep: true, immediate: true})
+    markers.forEach((marker) => {
+      this._markers.push(marker)
+      marker._createMarker(this.transform, this._scale, this.group)
+    })
   }
 
-  async setAdcode(adcode: number): Promise<void> {
-    this._adcode = adcode
-    this._init()
+  /**
+   * 添加投影层
+   * */
+  addProjectionLayer(opt: MapProjectionLayerConfig): void {
+    this._projectionLayerConfig.push(opt)
+    this._projectionLayerConfig.forEach((item) => {
+      this._drawProjectionLayer(item)
+    })
   }
 
-  setStyle(style: PathStyleProps): void {
-    watch(() => this._initializeSuccess.value, (val) => {
-      if (val) {
-        this.group.children().forEach((item) => {
-          if (item.type === 'map') {
-            item.attr('style' as Parameters<typeof item.attr>[0], style as Parameters<typeof item.attr>[1])
-          }
-        })
+  _drawProjectionLayer(opt: MapProjectionLayerConfig) {
+    const pathOpt = {
+      x: opt.offset.x,
+      y: opt.offset.y,
+      style: opt.style,
+      zlevel: opt.level,
+      shape: {
+        path: [] as number[]
       }
-    }, {deep: true, immediate: true})
+    }
+    this._mapAddLayer('projection', pathOpt)
+  }
+
+  _mapAddLayer(name: string, opt: PathProps & {shape: {path: number[]}}): void {
+    const BoundBox = createPolygon({
+      type: name,
+      callback: (this.transform as Transform).calculateOffset.bind(this.transform, this._scale)
+    })
+    const pathArray = forEachBoundGeoJson(this._mapGeoJsonBound)
+    pathArray.forEach((path) => {
+      const poyPath = new BoundBox({
+        ...opt,
+        shape: {
+          path: path as unknown as number[]
+        }
+      })
+      poyPath.type = name
+      poyPath.name = name
+      this.group && this.group.add(poyPath)
+    })
+  }
+
+  setGeoJson(geoJson: AdministrativeAreaGeoJson) {
+    this.registerMap(geoJson)
+  }
+
+  setMapStyle(style: PathStyleProps): void {
+    if (!this._mapGeoJsonBound || !this._mapGeoJsonFull) {
+      throw new Error('[MapRender] Map is not registrationComplete. 【registerMap】 method must be called before setting style')
+    }
+    this._style = style
+    this.group.children().forEach((item) => {
+      if (item.type === 'map') {
+        item.attr('style' as Parameters<typeof item.attr>[0], style as Parameters<typeof item.attr>[1])
+      }
+    })
+  }
+
+  setMapBoundBoxStyle(style: PathStyleProps): void {
+    if (!this._mapGeoJsonBound || !this._mapGeoJsonFull) {
+      throw new Error('[MapRender] Map is not registrationComplete. 【registerMap】 method must be called before setting style')
+    }
+    style.fill = 'none'
+    this._boundBox.style = style
+    this.group.eachChild((child) => {
+      if (child.type === 'boundBox') {
+        child.attr('style' as Parameters<typeof child.attr>[0], style as Parameters<typeof child.attr>[1])
+      }
+    })
   }
 
   on(event: MapEventKey, listener: (event: MapElementEvent) => void): void {

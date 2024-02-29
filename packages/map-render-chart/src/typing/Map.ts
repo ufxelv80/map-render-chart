@@ -2,14 +2,15 @@ import {Features} from "./GeoJson";
 import {ElementEvent, PathStyleProps, Element as ZRElement} from "zrender"
 
 export interface MapOptions {
-  container: HTMLElement | string;
-  adcode: number
-  scale?: number
+  container: HTMLElement | string
+  zoom?: number
   style?: PathStyleProps,
   level?: number
   boundBox?: BoundBoxOptions
   // 辅助线
   auxiliaryLine?: boolean
+  minZoom?: number
+  maxZoom?: number
 }
 
 export interface BoundBoxOptions {
@@ -56,4 +57,20 @@ export interface AddTooltipOptions {
   left?: number
   offsetX?: number
   offsetY?: number
+}
+
+export interface MapBgOpt {
+  width: number
+  height: number
+  x: number
+  y: number
+}
+
+export interface MapProjectionLayerConfig {
+  style: PathStyleProps
+  offset: {
+    x: number
+    y: number
+  },
+  level: number
 }

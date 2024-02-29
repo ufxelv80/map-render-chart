@@ -1,89 +1,86 @@
 import { Map, Marker, Icon, Size } from "map-render-chart"
-// import {Marker, Map, Icon, Size} from "../../src";
+// import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
 import '../../packages/map-render-chart/src/style/index.css'
 import {MapElementEvent} from "map-render-chart/src/typing/Map";
 import {staticResourcesURL} from "@/utils";
-import * as echarts from 'echarts'
+import axios from 'axios'
+import {AdministrativeAreaGeoJson, BoundGeoJson} from "map-render-chart/src/typing/GeoJson";
 
-// 使用更高的量化精度
-const precision = 1000000;
+let adcode = 530000
 
-function encodeCoordinates(coords) {
-  let encoded = coords.map((cur, index) => {
-    // 直接将坐标转换为整数
-    return [Math.floor(cur[0] * precision), Math.floor(cur[1] * precision)];
-  });
-
-  // 计算差分值
-  let diffs = encoded.map((cur, index) => {
-    if (index === 0) {
-      return cur; // 第一个坐标不变
-    } else {
-      let prev = encoded[index - 1];
-      return [cur[0] - prev[0], cur[1] - prev[1]];
-    }
-  });
-
-  // 转换差分值为字符串
-  return diffs.map(pair => pair.map(n => n.toString(36)).join(",")).join(" ");
+function getFullJsonData() {
+  return axios.get('https://geo.datav.aliyun.com/areas_v3/bound/' + adcode + '_full.json')
 }
 
-function decodeCoordinates(encoded) {
-  let diffs = encoded.split(" ").map(e => e.split(",").map(c => parseInt(c, 36)));
-  let coords = [];
-
-  for (let i = 0; i < diffs.length; i++) {
-    if (i === 0) {
-      // 第一个坐标直接添加
-      coords.push([diffs[i][0] / precision, diffs[i][1] / precision]);
-    } else {
-      // 后续坐标加上前一个坐标的值
-      let last = coords[i - 1];
-      coords.push([(last[0] * precision + diffs[i][0]) / precision, (last[1] * precision + diffs[i][1]) / precision]);
-    }
-  }
-
-  return coords;
+function getBoundJsonData() {
+  // return axios.get('http://localhost:8700/json/bounds/' + adcode + '_bound.json')
 }
 
-// 示例使用
-const originalCoords = [
-  [99.98525872289973, 26.04490937195122],
-  [114.502501, 38.045501],
-  [99.98525872289973, 26.04490937195122]
-];
-
-const encoded = encodeCoordinates(originalCoords);
-console.log("Encoded:", encoded);
-
-const decoded = decodeCoordinates(encoded);
-console.log("Decoded:", decoded);
-
-
-
+async function initJson() {
+  return await Promise.all([getFullJsonData()])
+}
 
 async function initMap() {
-  var mapFeatures = echarts.getMap('云南')
-  console.log(mapFeatures)
+  const res = await initJson()
+
   const map = new Map({
     container: 'app',
-    adcode: 530000,
-    scale: 0.8,
-    style: {
-      fill: '#ccc',
-      stroke: '#999',
-      lineWidth: 1,
-      lineJoin: 'round'
-    },
+    zoom: 0.8,
+    level: 3,
     boundBox: {
       show: true,
       level: 3
     }
   })
-  map.on('click', (e: MapElementEvent) => {
+
+  map.registerMap(res[0].data as AdministrativeAreaGeoJson)
+
+  map.setMapZoom({
+    minZoom: 0.1,
+    maxZoom: 10
+  })
+
+  map.enableScrollWheelZoom(true)
+  map.enableDragging(true)
+
+  map.setMapStyle({
+    fill: 'rgba(0, 0, 0, 0)',
+    stroke: '#999',
+    lineWidth: 1,
+    lineJoin: 'round'
+  })
+
+  map.setMapBoundBoxStyle({
+    stroke: '#1BFFFF',
+    lineWidth: 3
+  })
+
+  ;['#00f', '#0f0', '#f00'].forEach((color, index) => {
+    map.addProjectionLayer({
+      style: {
+        fill: color,
+        stroke: color,
+        lineJoin: 'round',
+      },
+      offset: {
+        x: index * 5 + 10,
+        y: index * 2 + 5,
+      },
+      level: -index
+    })
+  })
+
+  map.setMapBackground(staticResourcesURL('yn2.png'))
+  // map.setMapBackground(staticResourcesURL('1.jpg'))
+
+  map.on('click', async (e: MapElementEvent) => {
     console.log(e)
-    // map.setAdcode(e.target.properties.adcode || e.target.properties.code)
-    // map.setStyle({
+    adcode = e.metadata.properties.adcode || e.metadata.properties.code
+    const res = await initJson()
+    map.setGeoJson(res[0].data as AdministrativeAreaGeoJson)
+    // map.setMapBackground(staticResourcesURL('1.jpg'))
+    map.setMapBackground(staticResourcesURL('yn2.png'))
+    // map.setMapStyle({
     //   fill: 'rgba(0, 255, 0, 0.1)',
     //   stroke: 'red',
     //   lineWidth: 1,
@@ -93,7 +90,7 @@ async function initMap() {
   map.on('mousemove', (e: MapElementEvent) => {
     map.addTooltip(() => {
       return `<div class='wrapper'>
-      <span>${ e.centroid }</span>
+      <span>${e.centroid}</span>
     </div>`
     }, {
       top: e.offsetY,
@@ -112,7 +109,7 @@ async function initMap() {
 
 
   const marker2 = new Marker({
-    center: [103.40017334168972, 26.689930207284007],
+    center: [103.04048186924119, 24.955322622628728],
     geoType: 'geo',
     icon: myIcon,
   })

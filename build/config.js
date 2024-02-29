@@ -4,6 +4,7 @@ const nodeResolvePlugin = require("@rollup/plugin-node-resolve").default;
 const replace = require("@rollup/plugin-replace");
 const {terser} = require("rollup-plugin-terser");
 const MagicString = require("magic-string");
+const commonjs = require("@rollup/plugin-commonjs").default
 
 function createOutputs(basename, { min }, commonOutputOpts) {
   commonOutputOpts = {
@@ -33,7 +34,7 @@ function createOutputs(basename, { min }, commonOutputOpts) {
     output.push({
       ...commonOutputOpts,
       // Disable sourcemap in min file.
-      sourcemap: false,
+      sourcemap: true,
       // TODO preamble
       plugins: [
         createReplacePlugin('production'),
