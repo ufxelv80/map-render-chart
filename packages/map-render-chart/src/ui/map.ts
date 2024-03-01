@@ -68,6 +68,7 @@ class Map {
   private dataColor: string[] = []
   private label: Label
   private currentScale: number
+  private showMapBg: boolean = false
 
   constructor(options: MapOptions) {
     options = Object.assign({}, defaultOptions, options)
@@ -224,6 +225,7 @@ class Map {
     if (!this._mapGeoJsonBound || !this._mapGeoJsonFull) {
       throwError('Map is not registrationComplete. 【registerMap】 method must be called before setting style')
     }
+    this.showMapBg = true
     this.mapBg = image
     this.mapBgOpt = opt
     this._initMapBackground()
@@ -402,7 +404,7 @@ class Map {
     this._scale = defaultOptions.zoom
     this.group.removeAll()
     this._renderMap()
-    this._initMapBackground()
+    this.showMapBg && this._initMapBackground()
     this._projectionLayerConfig.forEach((item) => {
       this._drawProjectionLayer(item)
     })
