@@ -1,5 +1,5 @@
-// import { Map, Marker, Icon, Size } from "map-render-chart"
-import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
+import { Map, Marker, Icon, Size } from "map-render-chart"
+// import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
 import '../../packages/map-render-chart/src/style/index.css'
 import {MapData, MapElementEvent} from "map-render-chart/src/typing/Map";
 import {staticResourcesURL} from "@/utils";
@@ -34,7 +34,7 @@ async function initMap() {
     }
   })
 
-  map.registerMap(res[0].data as AdministrativeAreaGeoJson)
+  map.registerMap(res[0].data as AdministrativeAreaGeoJson, 530000)
 
   map.setMapZoom({
     minZoom: 0.1,
@@ -53,7 +53,8 @@ async function initMap() {
 
   map.setMapBoundBoxStyle({
     stroke: '#1BFFFF',
-    lineWidth: 3
+    lineWidth: 3,
+    lineJoin: 'round'
   })
 
   ;['#00f', '#0f0', '#f00'].forEach((color, index) => {
@@ -76,11 +77,11 @@ async function initMap() {
 
   map.on('click', async (e: MapElementEvent) => {
     console.log(e)
-    adcode = e.metadata.properties.adcode || e.metadata.properties.code
-    const res = await initJson()
-    map.setGeoJson(res[0].data as AdministrativeAreaGeoJson)
-    // map.setMapBackground(staticResourcesURL('1.jpg'))
-    map.setMapBackground(staticResourcesURL('yn2.png'))
+    // adcode = e.metadata.properties.adcode || e.metadata.properties.code
+    // const res = await initJson()
+    // map.setGeoJson(res[0].data as AdministrativeAreaGeoJson)
+    // // map.setMapBackground(staticResourcesURL('1.jpg'))
+    // map.setMapBackground(staticResourcesURL('yn2.png'))
     // map.setMapStyle({
     //   fill: 'rgba(0, 255, 0, 0.1)',
     //   stroke: 'red',
@@ -110,7 +111,7 @@ async function initMap() {
 
 
   const marker2 = new Marker({
-    center: [103.04048186924119, 24.955322622628728],
+    center: [103.01016720576924, 24.999276090384615],
     geoType: 'geo',
     icon: myIcon,
   })
@@ -121,10 +122,32 @@ async function initMap() {
     map.removeTooltip('hide')
   })
 
+  map.addMapLabel({
+    style: {
+      fill: '#1BFFFF',
+      fontSize: 13,
+    }
+  }, (target) => {
+    // console.log(target)
+    if (target.abbreviation === '怒江') {
+      target.setPosition(0, 10)
+    }
+    if (target.abbreviation === '迪庆') {
+      target.setPosition(0, 5)
+    }
+    if (target.abbreviation === '临沧') {
+      target.setPosition(0, 2)
+    }
+  })
+
+  // map.hideMapName()
+
+  // map.showMapName()
+
   window.addEventListener('resize', () => {
     map.resize()
   })
-  // handleMapData(map)
+  handleMapData(map)
 }
 
 // 处理地图数据

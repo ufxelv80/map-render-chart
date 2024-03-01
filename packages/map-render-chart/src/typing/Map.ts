@@ -1,5 +1,6 @@
 import {Features} from "./GeoJson";
-import {ElementEvent, PathStyleProps, Element as ZRElement} from "zrender"
+import {ElementEvent, PathStyleProps, Element as ZRElement, ElementProps} from "zrender"
+import {TextStyleProps} from "zrender";
 
 export interface MapOptions {
   container: HTMLElement | string
@@ -88,4 +89,14 @@ export interface MapNameFull {
   abbreviation: string
   abbreviation2?: string
   children?: MapNameFull[]
+}
+
+export interface ShowMapNameParams {
+  style: TextStyleProps,
+  fullName?: boolean
+}
+
+// 自定义 Element 接口
+export type CustomElement = ZRElement<ElementProps> & {
+  mapName?: string
 }

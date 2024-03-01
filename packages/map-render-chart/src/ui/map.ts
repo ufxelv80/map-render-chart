@@ -1,13 +1,13 @@
 import {
   AddTooltipOptions,
-  BoundBoxOptions,
+  BoundBoxOptions, CustomElement,
   MapBgOpt,
   MapData,
   MapElementEvent,
   MapEventKey,
-  MapEventType,
+  MapEventType, MapNameFull,
   MapOptions,
-  MapProjectionLayerConfig
+  MapProjectionLayerConfig, ShowMapNameParams
 } from '../typing/Map'
 import Transform from '../geo/transform'
 import {AdministrativeAreaGeoJson, BoundGeoJson, Features} from '../typing/GeoJson'
@@ -24,11 +24,13 @@ import Group from "zrender/lib/graphic/Group";
 import {Element as ZRElement, ElementEvent, PathStyleProps, ZRenderType} from "zrender";
 import Path, {PathProps} from "zrender/lib/graphic/Path";
 import type Marker from "./marker";
+import Label from "./label";
 import CoordinateAxis from "./coordinate-axis";
 import Circle from "zrender/lib/graphic/shape/Circle";
 import InitMapEvent from "./init-map-event";
 import ZRImage from "zrender/lib/graphic/Image";
 import {getCurrentMapName} from "../util/province-city-county-name";
+import {isNumber} from "../util/util";
 
 const defaultOptions: {
   zoom: number
@@ -61,9 +63,17 @@ class Map {
   private mapBg: string
   private mapBgOpt: MapBgOpt
   private _projectionLayerConfig: MapProjectionLayerConfig[] = []
+  private name: string | number
+  private data: MapData[] = []
+  private dataColor: string[] = []
+  private label: Label
+  private currentScale: number
 
   constructor(options: MapOptions) {
     options = Object.assign({}, defaultOptions, options)
+    if (options.zoom) {
+      defaultOptions.zoom = options.zoom
+    }
     this._scale = options.zoom
 
     if (typeof options.container === 'string') {
@@ -101,7 +111,8 @@ class Map {
   }
 
   // 注册地图
-  registerMap(geoJson: AdministrativeAreaGeoJson) {
+  registerMap(geoJson: AdministrativeAreaGeoJson, name: string | number = '中国') {
+    this.name = name
     this.transform = new Transform(this._container!)
     this._mapGeoJsonBound = this.transform.getGeoJsonBounds(geoJson)
     this.transform._getBounds()
@@ -137,7 +148,9 @@ class Map {
     myZr.dom.style.background = '#eaeaea'
     this._zr = myZr
     this.coordinateAxisGroup = new Group()
-    this.group = new Group()
+    this.group = new Group({
+      silent: false
+    })
     myZr.add(this.group)
     myZr.add(this.coordinateAxisGroup)
     storeAuthState(myZr, true)
@@ -173,6 +186,7 @@ class Map {
     this._scale = state.scale
     this.currentOffsetY = state.offsetY
     this.currentOffsetX = state.offsetX
+    this.currentScale = state.scale
   }
 
   _renderMap() {
@@ -268,6 +282,7 @@ class Map {
       type: 'map'
     })
     map.name = 'map'
+    // map.shape = {}
     this.group && this.group.add(map)
 
     for (const type in MapEventType) {
@@ -285,9 +300,15 @@ class Map {
     if (color.length !== 2) {
       throwError('color must be an array of two elements')
     }
-    const maxValue = Math.max(...data.map(item => item.value))
-    data.forEach(item => {
-      const child = this.getChildOfMapName(item.name) as ZRElement & { style: PathStyleProps, data: MapData }
+    this.data = data
+    this.dataColor = color
+    this.data.length > 0 && this.addMapData()
+  }
+
+  addMapData () {
+    const maxValue = Math.max(...this.data.map(item => item.value))
+    this.data.forEach(item => {
+      const child = this.group.children().find(child => (child as CustomElement)['mapName'] === item.name) as ZRElement & { style: PathStyleProps, data: MapData }
       if (!child) {
         warn(`Map name ${item.name} not found`)
       }
@@ -296,15 +317,21 @@ class Map {
         child && child.attr('style' as Parameters<typeof child.attr>[0], item.style as Parameters<typeof child.attr>[1])
       } else {
         const currentStyle = child.style
-        const currentColor = calculateOpacityAndGradientColor(maxValue, item.value, color[0], color[1])
+        const currentColor = calculateOpacityAndGradientColor(maxValue, item.value, this.dataColor[0], this.dataColor[1])
         currentStyle.fill = rgbaToHex(currentColor)
         child && child.attr('style' as Parameters<typeof child.attr>[0], currentStyle as Parameters<typeof child.attr>[1])
       }
     })
   }
 
-  getChildOfMapName(name: string) {
-    return this.group.children().find(item => (item as ZRElement & { mapName: string }).mapName === name)
+  getChildOfField(name: string, field: keyof CustomElement) {
+    const children: ZRElement[] = []
+    this.group.eachChild((child) => {
+      if ((child as CustomElement)[field] === name) {
+        children.push(child)
+      }
+    })
+    return children
   }
 
   // 绘制地图中心点
@@ -372,6 +399,7 @@ class Map {
       width: this._container!.offsetWidth,
       height: this._container!.offsetHeight
     })
+    this._scale = defaultOptions.zoom
     this.group.removeAll()
     this._renderMap()
     this._initMapBackground()
@@ -381,6 +409,8 @@ class Map {
     for (const marker of this._markers) {
       marker.update()
     }
+    this.data.length > 0 && this.addMapData()
+    this.label.resize()
   }
 
   addTooltip(callback: () => string | number, option?: AddTooltipOptions): void {
@@ -474,7 +504,10 @@ class Map {
   }
   // 获得地图名称缩写
   getMapNameAbbr() {
-    return getCurrentMapName(this._mapGeoJsonFull.features[0].properties.parent.adcode)
+    if (!this._mapGeoJsonFull || !this._mapGeoJsonBound) {
+      throwError('Map is not registrationComplete. 【registerMap】 method must be called before setting style')
+    }
+    return getCurrentMapName(this.name)
   }
 
   setMapBoundBoxStyle(style: PathStyleProps): void {
@@ -489,6 +522,47 @@ class Map {
       }
     })
   }
+
+  /**
+   * 显示地图名称
+   * */
+  addMapLabel(opt: ShowMapNameParams, callback: (target: Label) => void): void {
+    if (!this._mapGeoJsonFull || !this._mapGeoJsonBound) {
+      throwError('Map is not registrationComplete. 【registerMap】 method must be called before setting style')
+    }
+    const mapFullName = this.getMapNameAbbr()
+    this.label = new Label({
+      geoJson: this._mapGeoJsonFull,
+      group: this.group,
+      style: opt.style,
+      transform: this.transform,
+      mapFullName: mapFullName,
+      scale: this._scale,
+      fullName: opt.fullName
+    })
+    this.label.renderText(callback)
+  }
+
+  hideMapLabel() {
+    this.group.eachChild((child) => {
+      if (child.type === 'label') {
+        child.hide()
+      }
+    })
+  }
+
+  showMapLabel() {
+    this.group.eachChild((child) => {
+      if (child.type === 'label') {
+        child.show()
+      }
+    })
+  }
+
+  /**
+   * 添加地图 label
+   * */
+  addLabel(label: string, style: PathStyleProps): void {}
 
   on(event: MapEventKey, listener: (event: MapElementEvent) => void): void {
     if (listener === undefined) {

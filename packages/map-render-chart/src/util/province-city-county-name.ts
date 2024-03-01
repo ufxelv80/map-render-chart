@@ -1,4 +1,4 @@
-import {throwError} from "./util";
+import {isNumber, throwError} from "./util";
 import {MapNameFull} from "../typing/Map";
 
 export const mapName: MapNameFull[] = [
@@ -111,11 +111,16 @@ export const mapName: MapNameFull[] = [
   }
 ]
 
-export function getCurrentMapName (adcode?: number) {
-  if (!adcode) return mapName
-  const province = mapName.find(item => item.adcode === adcode)
-  if (!province) {
-    throwError('adcode not found')
+export function getCurrentMapName (code?: number | string): MapNameFull[] {
+  if (!code) return mapName
+  let currentMapName: MapNameFull[]
+  // 是字符串的 adcode
+  if ((typeof code === 'string' && isNumber(code)) || typeof code === 'number') {
+    const result = mapName.find(item => item.adcode === Number(code))
+    currentMapName = result ? result.children : []
+  } else {
+    const result = mapName.find(item => (item.name === code || item.abbreviation === code))
+    currentMapName = result ? result.children : []
   }
-  return province.children
+  return currentMapName
 }

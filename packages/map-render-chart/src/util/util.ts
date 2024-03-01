@@ -179,3 +179,8 @@ export function warn (msg: string): void {
 export function throwError (msg: string): void {
   throw new Error(`[map-render-chart] ${msg}`)
 }
+
+// 判断一个字符串是不是数字
+export function isNumber (value: string): boolean {
+  return !isNaN(Number(value))
+}
