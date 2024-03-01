@@ -1,5 +1,5 @@
-import { Map, Marker, Icon, Size } from "map-render-chart"
-// import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
+// import { Map, Marker, Icon, Size } from "map-render-chart"
+import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
 import '../../packages/map-render-chart/src/style/index.css'
 import {MapData, MapElementEvent} from "map-render-chart/src/typing/Map";
 import {staticResourcesURL} from "@/utils";
@@ -122,23 +122,23 @@ async function initMap() {
     map.removeTooltip('hide')
   })
 
-  map.addMapLabel({
-    style: {
-      fill: '#1BFFFF',
-      fontSize: 13,
-    }
-  }, (target) => {
-    // console.log(target)
-    if (target.abbreviation === '怒江') {
-      target.setPosition(0, 10)
-    }
-    if (target.abbreviation === '迪庆') {
-      target.setPosition(0, 5)
-    }
-    if (target.abbreviation === '临沧') {
-      target.setPosition(0, 2)
-    }
-  })
+  // map.addMapLabel({
+  //   style: {
+  //     fill: '#1BFFFF',
+  //     fontSize: 13,
+  //   }
+  // }, (target) => {
+  //   // console.log(target)
+  //   if (target.abbreviation === '怒江') {
+  //     target.setPosition(0, 10)
+  //   }
+  //   if (target.abbreviation === '迪庆') {
+  //     target.setPosition(0, 5)
+  //   }
+  //   if (target.abbreviation === '临沧') {
+  //     target.setPosition(0, 2)
+  //   }
+  // })
 
   // map.hideMapName()
 

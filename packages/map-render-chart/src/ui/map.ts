@@ -412,7 +412,7 @@ class Map {
       marker.update()
     }
     this.data.length > 0 && this.addMapData()
-    this.label.resize()
+    this.label && this.label.resize()
   }
 
   addTooltip(callback: () => string | number, option?: AddTooltipOptions): void {
