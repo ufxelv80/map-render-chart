@@ -74,3 +74,18 @@ export interface MapProjectionLayerConfig {
   },
   level: number
 }
+
+export interface MapData {
+  name: string
+  value: number
+  style?: PathStyleProps
+  [x: string]: any
+}
+
+export interface MapNameFull {
+  adcode: number
+  name: string
+  abbreviation: string
+  abbreviation2?: string
+  children?: MapNameFull[]
+}

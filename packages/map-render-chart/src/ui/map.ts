@@ -1,24 +1,34 @@
 import {
   AddTooltipOptions,
-  BoundBoxOptions, MapBgOpt,
+  BoundBoxOptions,
+  MapBgOpt,
+  MapData,
   MapElementEvent,
   MapEventKey,
-  // MapElementEvent,
   MapEventType,
-  MapOptions, MapProjectionLayerConfig
+  MapOptions,
+  MapProjectionLayerConfig
 } from '../typing/Map'
 import Transform from '../geo/transform'
 import {AdministrativeAreaGeoJson, BoundGeoJson, Features} from '../typing/GeoJson'
-import {createElement, createPolygon, forEachBoundGeoJson, storeAuthState} from '../util/util'
+import {
+  calculateOpacityAndGradientColor,
+  createElement,
+  createPolygon,
+  forEachBoundGeoJson,
+  rgbaToHex,
+  storeAuthState, throwError, warn
+} from '../util/util'
 import * as zrender from 'zrender/lib/zrender'
 import Group from "zrender/lib/graphic/Group";
-import {ElementEvent, PathStyleProps, ZRenderType} from "zrender";
+import {Element as ZRElement, ElementEvent, PathStyleProps, ZRenderType} from "zrender";
 import Path, {PathProps} from "zrender/lib/graphic/Path";
 import type Marker from "./marker";
 import CoordinateAxis from "./coordinate-axis";
 import Circle from "zrender/lib/graphic/shape/Circle";
 import InitMapEvent from "./init-map-event";
 import ZRImage from "zrender/lib/graphic/Image";
+import {getCurrentMapName} from "../util/province-city-county-name";
 
 const defaultOptions: {
   zoom: number
@@ -60,12 +70,12 @@ class Map {
       this._container = window.document.getElementById(options.container)
 
       if (!this._container) {
-        throw new Error(`Container '${options.container.toString()}' not found.`)
+        throwError(`Container '${options.container}' not found.`)
       }
     } else if (options.container instanceof window.HTMLElement) {
       this._container = options.container
     } else {
-      throw new Error('Invalid type: \'container\' must be a String or HTMLElement.')
+      throwError('Invalid type: \'container\' must be a String or HTMLElement.')
     }
 
     this._style = options.style
@@ -198,7 +208,7 @@ class Map {
 
   setMapBackground(image: string, opt: MapBgOpt = {height: 0, width: 0, x: 0, y: 0}) {
     if (!this._mapGeoJsonBound || !this._mapGeoJsonFull) {
-      throw new Error('[MapRender] Map is not registrationComplete. 【registerMap】 method must be called before setting style')
+      throwError('Map is not registrationComplete. 【registerMap】 method must be called before setting style')
     }
     this.mapBg = image
     this.mapBgOpt = opt
@@ -246,7 +256,6 @@ class Map {
       stroke: '#ccc',
     }
     const Map = createPolygon({
-      type: 'map',
       callback: (this.transform as Transform).calculateOffset.bind(this.transform, this._scale)
     })
     const map = new Map({
@@ -254,15 +263,48 @@ class Map {
         path: coord as number[]
       },
       style,
-      zlevel: this._level
+      zlevel: this._level,
+      mapName: feature.properties.name,
+      type: 'map'
     })
-    map.type = 'map'
     map.name = 'map'
     this.group && this.group.add(map)
 
     for (const type in MapEventType) {
       this.addEventListener(type.toLowerCase() as MapEventKey, map, feature)
     }
+  }
+
+  setMapData(data: MapData[], color: string[]) {
+    if (!this._mapGeoJsonBound || !this._mapGeoJsonFull) {
+      throwError('Map is not registrationComplete. 【registerMap】 method must be called before setting style')
+    }
+    if (!color.length) {
+      throwError('color is required')
+    }
+    if (color.length !== 2) {
+      throwError('color must be an array of two elements')
+    }
+    const maxValue = Math.max(...data.map(item => item.value))
+    data.forEach(item => {
+      const child = this.getChildOfMapName(item.name) as ZRElement & { style: PathStyleProps, data: MapData }
+      if (!child) {
+        warn(`Map name ${item.name} not found`)
+      }
+      child.data = item
+      if (item.style) {
+        child && child.attr('style' as Parameters<typeof child.attr>[0], item.style as Parameters<typeof child.attr>[1])
+      } else {
+        const currentStyle = child.style
+        const currentColor = calculateOpacityAndGradientColor(maxValue, item.value, color[0], color[1])
+        currentStyle.fill = rgbaToHex(currentColor)
+        child && child.attr('style' as Parameters<typeof child.attr>[0], currentStyle as Parameters<typeof child.attr>[1])
+      }
+    })
+  }
+
+  getChildOfMapName(name: string) {
+    return this.group.children().find(item => (item as ZRElement & { mapName: string }).mapName === name)
   }
 
   // 绘制地图中心点
@@ -421,7 +463,7 @@ class Map {
 
   setMapStyle(style: PathStyleProps): void {
     if (!this._mapGeoJsonBound || !this._mapGeoJsonFull) {
-      throw new Error('[MapRender] Map is not registrationComplete. 【registerMap】 method must be called before setting style')
+      throwError('Map is not registrationComplete. 【registerMap】 method must be called before setting style')
     }
     this._style = style
     this.group.children().forEach((item) => {
@@ -430,10 +472,14 @@ class Map {
       }
     })
   }
+  // 获得地图名称缩写
+  getMapNameAbbr() {
+    return getCurrentMapName(this._mapGeoJsonFull.features[0].properties.parent.adcode)
+  }
 
   setMapBoundBoxStyle(style: PathStyleProps): void {
     if (!this._mapGeoJsonBound || !this._mapGeoJsonFull) {
-      throw new Error('[MapRender] Map is not registrationComplete. 【registerMap】 method must be called before setting style')
+      throwError('Map is not registrationComplete. 【registerMap】 method must be called before setting style')
     }
     style.fill = 'none'
     this._boundBox.style = style

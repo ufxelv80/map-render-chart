@@ -1,10 +1,11 @@
-import { Map, Marker, Icon, Size } from "map-render-chart"
-// import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
+// import { Map, Marker, Icon, Size } from "map-render-chart"
+import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
 import '../../packages/map-render-chart/src/style/index.css'
-import {MapElementEvent} from "map-render-chart/src/typing/Map";
+import {MapData, MapElementEvent} from "map-render-chart/src/typing/Map";
 import {staticResourcesURL} from "@/utils";
 import axios from 'axios'
 import {AdministrativeAreaGeoJson, BoundGeoJson} from "map-render-chart/src/typing/GeoJson";
+import mapData from './data'
 
 let adcode = 530000
 
@@ -89,8 +90,8 @@ async function initMap() {
 
   map.on('mousemove', (e: MapElementEvent) => {
     map.addTooltip(() => {
-      return `<div class='wrapper'>
-      <span>${e.centroid}</span>
+      return `<div class='wrapper' style="color: #ff0">
+      <span>${e.metadata.properties.name} - ${ e.metadata.properties.adcode }</span>
     </div>`
     }, {
       top: e.offsetY,
@@ -123,6 +124,24 @@ async function initMap() {
   window.addEventListener('resize', () => {
     map.resize()
   })
+  // handleMapData(map)
+}
+
+// 处理地图数据
+function handleMapData(map: Map) {
+  const data: MapData[] = []
+  const mapFullName = map.getMapNameAbbr()!
+  mapData.forEach((item) => {
+    const currentName = mapFullName.find((name) => (name.abbreviation === item.label || name.abbreviation2 === item.label))
+    if (currentName) {
+      data.push({
+        name: currentName.name,
+        value: item.value,
+        children: item.children
+      })
+    }
+  })
+  map.setMapData(data, ['#b5a7f8', '#7734c0'])
 }
 
 initMap()

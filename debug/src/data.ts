@@ -1,2114 +1,1074 @@
 export default [
   {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通永富村-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.67677,
-    "numLatitude": 24.97958,
-    "enodebId": "854007"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海埂会议中心山茶厅-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.65208,
-    "numLatitude": 24.98081,
-    "enodebId": "853987"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海埂会议中心报告厅2-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.65208,
-    "numLatitude": 24.98081,
-    "enodebId": "853986"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海埂会议中心报告厅1-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.65207,
-    "numLatitude": 24.98081,
-    "enodebId": "853984"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区同仁医院旁灯杆-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69251,
-    "numLatitude": 24.97694,
-    "enodebId": "853954"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区永昌南水塔-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.704144,
-    "numLatitude": 25.017814,
-    "enodebId": "854006"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区富城车市26栋-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.68778,
-    "numLatitude": 25.00251,
-    "enodebId": "854005"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区滇池学院男生公寓7栋(64T64R)-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.67068,
-    "numLatitude": 24.97462,
-    "enodebId": "854003"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区工众药房景观塔-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.68139,
-    "numLatitude": 25.03528,
-    "enodebId": "853999"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区高海公司-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.63678,
-    "numLatitude": 24.96484,
-    "enodebId": "853998"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区公园1903商业街灯杆-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.677142,
-    "numLatitude": 24.988974,
-    "enodebId": "853994"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口工业学院应急皮卡方仓-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.632071,
-    "numLatitude": 24.792671,
-    "enodebId": "853992"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区百集龙家居(64T64R)-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.64987,
-    "numLatitude": 25.02872,
-    "enodebId": "853991"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通海韵枫丹对面景观塔-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.66592,
-    "numLatitude": 24.97711,
-    "enodebId": "853906"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信龙门客栈-LZHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.63279,
-    "numLatitude": 24.94826,
-    "enodebId": "853804"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区浪泥湾119号-LZHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.64155,
-    "numLatitude": 24.79417,
-    "enodebId": "853905"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区碧鸡白草村白草苑-LZHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.65435,
-    "numLatitude": 24.82235,
-    "enodebId": "853904"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区夏意雅苑旁-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.704121,
-    "numLatitude": 24.975911,
-    "enodebId": "853900"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区索道上站-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.63722,
-    "numLatitude": 24.95263,
-    "enodebId": "853899"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区猫猫箐坡路1号路灯-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.630781,
-    "numLatitude": 24.961621,
-    "enodebId": "853864"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区百草村89号-LZHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.65209,
-    "numLatitude": 24.83224,
-    "enodebId": "853858"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区昆钢科技大厦B-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.699988,
-    "numLatitude": 25.025952,
-    "enodebId": "853832"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区昆钢科技大厦A-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.699723,
-    "numLatitude": 25.026389,
-    "enodebId": "853831"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区昆明地铁3号线大渔路站B-LHPQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.63391,
-    "numLatitude": 25.03023,
-    "enodebId": "853803"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区富城车市10栋-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.682223,
-    "numLatitude": 25.000001,
-    "enodebId": "853800"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区交警三大队-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70001,
-    "numLatitude": 25.02944,
-    "enodebId": "853822"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信楚祥苑-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 3,
-    "starLevel": "三星",
-    "numLongitude": 102.67583,
-    "numLatitude": 25.01751,
-    "enodebId": "853821"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区云投景苑物管楼-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 4,
-    "starLevel": "四星",
-    "numLongitude": 102.67806,
-    "numLatitude": 25.04444,
-    "enodebId": "853816"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信云纺商务楼B1-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.709167,
-    "numLatitude": 25.023056,
-    "enodebId": "853783"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通绿色家园-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.676667,
-    "numLatitude": 25.019723,
-    "enodebId": "853814"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通金牛小区-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69472,
-    "numLatitude": 25.01444,
-    "enodebId": "853813"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通广福路帅车服务点-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.67583,
-    "numLatitude": 25.00222,
-    "enodebId": "853811"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通船房村泵站-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.68222,
-    "numLatitude": 25.01972,
-    "enodebId": "853809"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信特警支队-LZHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.648116,
-    "numLatitude": 24.896094,
-    "enodebId": "853806"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信绿景花园-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.679681,
-    "numLatitude": 25.016711,
-    "enodebId": "853805"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区金海新区二期-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69628,
-    "numLatitude": 24.963471,
-    "enodebId": "853293"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海源庄公租房-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.660664,
-    "numLatitude": 25.035431,
-    "enodebId": "853292"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区正和小区和顺巷-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.678851,
-    "numLatitude": 25.009755,
-    "enodebId": "853193"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区爱琴海2、3号写字楼B-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.683889,
-    "numLatitude": 24.996112,
-    "enodebId": "853291"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区爱琴海2、3号写字楼A-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.683889,
-    "numLatitude": 24.996112,
-    "enodebId": "853290"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区城投商务楼-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.640682,
-    "numLatitude": 25.044301,
-    "enodebId": "853289"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区鹤塘福景（南悦城蓝岸）-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.71417,
-    "numLatitude": 24.99028,
-    "enodebId": "853288"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区羲辉城峰国际-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.64164,
-    "numLatitude": 25.045191,
-    "enodebId": "853270"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区维度空间-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.712223,
-    "numLatitude": 25.011667,
-    "enodebId": "853269"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区滇池时代广场一期-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.683422,
-    "numLatitude": 25.014891,
-    "enodebId": "853268"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A11地块-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.699167,
-    "numLatitude": 24.998612,
-    "enodebId": "853267"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A10地块-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69917,
-    "numLatitude": 24.99861,
-    "enodebId": "853266"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A9地块-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69917,
-    "numLatitude": 24.99871,
-    "enodebId": "853265"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A8地块-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.700919,
-    "numLatitude": 24.997746,
-    "enodebId": "853264"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A7地块-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.700919,
-    "numLatitude": 24.997746,
-    "enodebId": "853263"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区佳湖新城室分-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70943,
-    "numLatitude": 24.99597,
-    "enodebId": "853192"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A6地块-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70111,
-    "numLatitude": 24.99778,
-    "enodebId": "853262"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区九夏云水一期-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.673056,
-    "numLatitude": 24.998612,
-    "enodebId": "853261"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区润城（A4地块）-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.700834,
-    "numLatitude": 25.001667,
-    "enodebId": "853260"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区豪生酒店综合楼-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.664108,
-    "numLatitude": 24.974613,
-    "enodebId": "853206"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区理想小镇室分-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70861,
-    "numLatitude": 24.99833,
-    "enodebId": "853191"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区采莲郡室分-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.67079,
-    "numLatitude": 25.00169,
-    "enodebId": "853201"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区乐佳苑（5至6栋）-FHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.694998,
-    "numLatitude": 25.032016,
-    "enodebId": "853189"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区夏意雅苑28栋-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 4,
-    "starLevel": "四星",
-    "numLongitude": 102.70639,
-    "numLatitude": 24.974167,
-    "enodebId": "853187"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区近华园2栋502号-LZHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.67496,
-    "numLatitude": 25.03841,
-    "enodebId": "853184"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区解放新村干休所宏站-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.704445,
-    "numLatitude": 25.033334,
-    "enodebId": "853171"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区集成大厦-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.67722,
-    "numLatitude": 25.04001,
-    "enodebId": "853167"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区万达广场F-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.708889,
-    "numLatitude": 25.011389,
-    "enodebId": "853157"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区西华路灯杆-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.68056,
-    "numLatitude": 25.02306,
-    "enodebId": "852455"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区加州枫景门口灯杆-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.67031,
-    "numLatitude": 25.01321,
-    "enodebId": "853064"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区滇池名古屋灯杆2(64T64R)-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.66162,
-    "numLatitude": 24.99175,
-    "enodebId": "853041"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通永昌小区-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70333,
-    "numLatitude": 25.02028,
-    "enodebId": "853036"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区大悦城东(64T64R)-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.713611,
-    "numLatitude": 25.024633,
-    "enodebId": "852515"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区长欣花园灯杆(64T64R)-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.58361,
-    "numLatitude": 24.97556,
-    "enodebId": "852481"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区名悦花园悦峰苑1-5栋-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.65011,
-    "numLatitude": 25.04521,
-    "enodebId": "852598"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区金地商置昆悦A区B-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.645113,
-    "numLatitude": 25.045638,
-    "enodebId": "852597"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区金地商置昆悦A区-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.645113,
-    "numLatitude": 25.045638,
-    "enodebId": "852588"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区华夏御府中央A4-3地块-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.66676,
-    "numLatitude": 24.99744,
-    "enodebId": "852587"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信金广路与杨家路交叉口灯杆-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.68889,
-    "numLatitude": 25.00694,
-    "enodebId": "852536"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区高珠新村-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69427,
-    "numLatitude": 25.00806,
-    "enodebId": "852454"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区橘尚公寓-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.695278,
-    "numLatitude": 24.999167,
-    "enodebId": "852312"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区未名城A7A8地块-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.695001,
-    "numLatitude": 24.993889,
-    "enodebId": "852378"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区未名城A2地块-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.695617,
-    "numLatitude": 24.997389,
-    "enodebId": "852377"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区金坤世纪F-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69841,
-    "numLatitude": 25.01327,
-    "enodebId": "852376"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区金坤世纪E-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69841,
-    "numLatitude": 25.01327,
-    "enodebId": "852375"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区金坤世纪D-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69861,
-    "numLatitude": 25.01306,
-    "enodebId": "852374"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区金坤世纪C-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69841,
-    "numLatitude": 25.01327,
-    "enodebId": "852373"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区金坤世纪B-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.698434,
-    "numLatitude": 25.01327,
-    "enodebId": "852372"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区金坤世纪A-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69861,
-    "numLatitude": 25.01306,
-    "enodebId": "852371"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区盛高大城5期-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.703524,
-    "numLatitude": 25.014943,
-    "enodebId": "852347"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区博亚医院-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.68093,
-    "numLatitude": 24.99599,
-    "enodebId": "852346"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区润城（苏黎仕家）-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.704737,
-    "numLatitude": 24.996973,
-    "enodebId": "852345"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区医大广场-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.686821,
-    "numLatitude": 25.044134,
-    "enodebId": "852344"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区弥勒寺公园-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.697714,
-    "numLatitude": 25.032754,
-    "enodebId": "852336"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区万达双塔C-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70889,
-    "numLatitude": 25.01139,
-    "enodebId": "852119"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区万达双塔B-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70889,
-    "numLatitude": 25.01139,
-    "enodebId": "852118"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区万达双塔A-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.708889,
-    "numLatitude": 25.011389,
-    "enodebId": "852117"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区凤凰御景一期-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 3,
-    "starLevel": "三星",
-    "numLongitude": 102.693889,
-    "numLatitude": 25.008889,
-    "enodebId": "852115"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区正基春天里B-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.631231,
-    "numLatitude": 25.022871,
-    "enodebId": "852114"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区正基春天里A-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.631221,
-    "numLatitude": 25.022871,
-    "enodebId": "852113"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区红星广场紫郡6-13栋-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.683932,
-    "numLatitude": 24.997202,
-    "enodebId": "852110"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区昆明市建筑设计研究院有限责任公司-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.69556,
-    "numLatitude": 24.99611,
-    "enodebId": "852090"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区新城云石国际中心A-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.64993,
-    "numLatitude": 25.02936,
-    "enodebId": "852156"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区云投中心8-11栋-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.680278,
-    "numLatitude": 25.045556,
-    "enodebId": "852133"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A3地块B-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.700834,
-    "numLatitude": 24.992501,
-    "enodebId": "852132"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A3地块A-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70083,
-    "numLatitude": 24.99251,
-    "enodebId": "852131"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A1地块B-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.696945,
-    "numLatitude": 24.992223,
-    "enodebId": "852130"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区广福城A1地块A-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.696945,
-    "numLatitude": 24.992223,
-    "enodebId": "852129"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区兰亭上锦二期B-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.645051,
-    "numLatitude": 25.048511,
-    "enodebId": "852070"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区兰亭上锦二期A-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.64505,
-    "numLatitude": 25.04851,
-    "enodebId": "852069"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区泽惠铭城B-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.717707,
-    "numLatitude": 24.998859,
-    "enodebId": "852068"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区泽惠铭城A-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.717707,
-    "numLatitude": 24.998859,
-    "enodebId": "852067"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区万达双塔E-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70889,
-    "numLatitude": 25.01139,
-    "enodebId": "852121"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区公园1903商业区（金格中心）B-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.675271,
-    "numLatitude": 24.989091,
-    "enodebId": "852082"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区万达双塔D-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70889,
-    "numLatitude": 25.01139,
-    "enodebId": "852120"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区公园1903商业区（金格中心）A-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.675271,
-    "numLatitude": 24.989091,
-    "enodebId": "852081"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通海口镇宽地坝77号-LZHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.60147,
-    "numLatitude": 24.79864,
-    "enodebId": "852080"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区省工商大厦-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.68222,
-    "numLatitude": 25.03333,
-    "enodebId": "852079"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区粮油批发市场室分-LZSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "中兴",
-    "intStarLevel": 4,
-    "starLevel": "四星",
-    "numLongitude": 102.66903,
-    "numLatitude": 25.041426,
-    "enodebId": "852077"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区COCO蜜城-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.715601,
-    "numLatitude": 24.995052,
-    "enodebId": "852074"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区韩家湾灯杆(64T64R)-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 4,
-    "starLevel": "四星",
-    "numLongitude": 102.658583,
-    "numLatitude": 25.00639,
-    "enodebId": "837256"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区晴沙巷龙陵县人民办事处-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.68131,
-    "numLatitude": 25.04314,
-    "enodebId": "852003"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区酷时代商住楼-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.691517,
-    "numLatitude": 25.026619,
-    "enodebId": "852002"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区润城国际二期A-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.695834,
-    "numLatitude": 25.001945,
-    "enodebId": "851999"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区香榭丽园-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.708612,
-    "numLatitude": 25.001112,
-    "enodebId": "851986"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区万达广场B区商铺2-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.70889,
-    "numLatitude": 25.01139,
-    "enodebId": "851985"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区滇池卫城蓝调公元-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.68778,
-    "numLatitude": 24.97722,
-    "enodebId": "851984"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口磷矿-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.49444,
-    "numLatitude": 24.77111,
-    "enodebId": "837314"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口石树园生态园度假区-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.57278,
-    "numLatitude": 24.80417,
-    "enodebId": "837313"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区上冲村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.54472,
-    "numLatitude": 25.12389,
-    "enodebId": "837312"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区团结好宝箐-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.51083,
-    "numLatitude": 25.11639,
-    "enodebId": "837311"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区麦地坝-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.55222,
-    "numLatitude": 25.14972,
-    "enodebId": "837310"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区下律则村52号-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.42028,
-    "numLatitude": 25.11417,
-    "enodebId": "837309"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区团结永靖柿花园村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.577778,
-    "numLatitude": 25.105556,
-    "enodebId": "837308"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区城建大厦-LHSQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.66704,
-    "numLatitude": 25.03914,
-    "enodebId": "837274"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区鸿运小区10栋(64T64R)-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.66254,
-    "numLatitude": 25.02851,
-    "enodebId": "837261"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区团结凤凰隧道北口-FHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.551667,
-    "numLatitude": 24.994445,
-    "enodebId": "837361"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口下哨村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.48833,
-    "numLatitude": 24.84361,
-    "enodebId": "837347"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区西山监狱-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.61667,
-    "numLatitude": 25.09361,
-    "enodebId": "837346"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口双哨村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.49861,
-    "numLatitude": 24.82833,
-    "enodebId": "837345"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信海口双哨村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.50389,
-    "numLatitude": 24.82333,
-    "enodebId": "837343"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通海口双哨-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 3,
-    "starLevel": "三星",
-    "numLongitude": 102.48611,
-    "numLatitude": 24.82111,
-    "enodebId": "837321"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区白石岩-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.57139,
-    "numLatitude": 25.12778,
-    "enodebId": "837320"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区妥排-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.45583,
-    "numLatitude": 25.10444,
-    "enodebId": "837319"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区小河口-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.40251,
-    "numLatitude": 25.09889,
-    "enodebId": "837318"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区永靖-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.56363,
-    "numLatitude": 25.11511,
-    "enodebId": "837317"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区大叠水风景区-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.38333,
-    "numLatitude": 25.16611,
-    "enodebId": "837316"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区普坪村化工厂-FHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.61889,
-    "numLatitude": 25.01251,
-    "enodebId": "837242"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区马街中村-FHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.62972,
-    "numLatitude": 25.03833,
-    "enodebId": "837240"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区佳湖花园物管楼-FHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.716945,
-    "numLatitude": 25.002778,
-    "enodebId": "836513"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口中平村委会西-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.53806,
-    "numLatitude": 24.79861,
-    "enodebId": "837192"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通团结乡朵母-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.434888,
-    "numLatitude": 25.167667,
-    "enodebId": "837184"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区团结乡大乐居村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.51028,
-    "numLatitude": 25.09528,
-    "enodebId": "837183"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区团结乡晓明村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.55778,
-    "numLatitude": 24.99251,
-    "enodebId": "837182"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区询知培训学校-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 3,
-    "starLevel": "三星",
-    "numLongitude": 102.56417,
-    "numLatitude": 24.98694,
-    "enodebId": "837181"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区发禄村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.58333,
-    "numLatitude": 24.98972,
-    "enodebId": "837180"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通明朗三节桥楼顶-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.56889,
-    "numLatitude": 24.98333,
-    "enodebId": "837179"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信团结谷律民族中学-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.44139,
-    "numLatitude": 25.13001,
-    "enodebId": "837177"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区团结滑草场2-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.520333,
-    "numLatitude": 25.06362,
-    "enodebId": "837176"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通龙潭村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.52667,
-    "numLatitude": 25.08667,
-    "enodebId": "837174"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区团结乡大河村拉远-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.535278,
-    "numLatitude": 25.078334,
-    "enodebId": "837172"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区团结小厂村二队-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.548612,
-    "numLatitude": 25.067223,
-    "enodebId": "837168"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区下冲-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.53056,
-    "numLatitude": 25.13472,
-    "enodebId": "837167"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区石马哨-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.54501,
-    "numLatitude": 24.76667,
-    "enodebId": "837166"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区西仪家园1栋-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.58501,
-    "numLatitude": 24.80417,
-    "enodebId": "837165"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区绕城高速大兴村隧道口-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.55194,
-    "numLatitude": 24.99444,
-    "enodebId": "837164"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通大墨雨村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.58056,
-    "numLatitude": 25.08111,
-    "enodebId": "837163"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通乐居村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.51472,
-    "numLatitude": 25.09278,
-    "enodebId": "837162"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区团结乡棋台-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.50001,
-    "numLatitude": 25.02861,
-    "enodebId": "837161"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区花红园欢乐姆-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.61389,
-    "numLatitude": 25.05167,
-    "enodebId": "837159"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区分水岭-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 3,
-    "starLevel": "三星",
-    "numLongitude": 102.40333,
-    "numLatitude": 25.18722,
-    "enodebId": "837158"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口小场村-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.507723,
-    "numLatitude": 24.812462,
-    "enodebId": "837157"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区大乐亩27号-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.420556,
-    "numLatitude": 25.145556,
-    "enodebId": "837156"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区西郊安置所-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.59917,
-    "numLatitude": 25.04611,
-    "enodebId": "837155"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区龙潭沙石管理站-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.60056,
-    "numLatitude": 25.08251,
-    "enodebId": "837153"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信国防技术学院-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.58806,
-    "numLatitude": 24.82056,
-    "enodebId": "837152"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通团结乡沙管站-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.60056,
-    "numLatitude": 25.08251,
-    "enodebId": "837151"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区成昆铁路广昆段地铁转乘站(64T64R)-LHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 3,
-    "starLevel": "三星",
-    "numLongitude": 102.620871,
-    "numLatitude": 25.004601,
-    "enodebId": "836653"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区华夏曦岸13栋-FHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.670278,
-    "numLatitude": 25.003612,
-    "enodebId": "836651"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口镇老街村-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.58306,
-    "numLatitude": 24.78222,
-    "enodebId": "836649"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口圆正轴承-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.58528,
-    "numLatitude": 24.79083,
-    "enodebId": "836648"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口真味园-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.61333,
-    "numLatitude": 24.78472,
-    "enodebId": "836647"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口虹山小区-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.60583,
-    "numLatitude": 24.79028,
-    "enodebId": "836646"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区海口83号-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.60694,
-    "numLatitude": 24.78333,
-    "enodebId": "836645"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区新村农家乐-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.65139,
-    "numLatitude": 24.90583,
-    "enodebId": "836644"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信海口云峰造纸厂-FHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.585591,
-    "numLatitude": 24.784841,
-    "enodebId": "836643"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区花红洞1-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.60917,
-    "numLatitude": 25.05861,
-    "enodebId": "836642"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区雷达部队-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.63501,
-    "numLatitude": 24.93889,
-    "enodebId": "836641"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区碧鸡小七十郎山庄-FHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.66028,
-    "numLatitude": 24.85861,
-    "enodebId": "836640"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享电信昆州路水利水电小区-FHHQ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 3,
-    "starLevel": "三星",
-    "numLongitude": 102.64194,
-    "numLatitude": 25.04333,
-    "enodebId": "836635"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区观音山村366号-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.66306,
-    "numLatitude": 24.83694,
-    "enodebId": "836634"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区观音山-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.66167,
-    "numLatitude": 24.84139,
-    "enodebId": "836633"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通金宝山晖湾村-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.64306,
-    "numLatitude": 24.91361,
-    "enodebId": "836631"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通海口镇大黑荞村9号2层-FHHN",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.62444,
-    "numLatitude": 24.80306,
-    "enodebId": "836630"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通海口里仁-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.589611,
-    "numLatitude": 24.786251,
-    "enodebId": "836629"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通海口将凹村北隧道旁-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 5,
-    "starLevel": "五星",
-    "numLongitude": 102.63207,
-    "numLatitude": 24.79272,
-    "enodebId": "836627"
-  },
-  {
-    "location": "昆明西山区",
-    "resName": "西山区共享联通古莲村-FHHZ",
-    "networkTypeFlag": "4G",
-    "vendorName": "华为",
-    "intStarLevel": 4,
-    "starLevel": "四星",
-    "numLongitude": 102.65306,
-    "numLatitude": 24.88667,
-    "enodebId": "836626"
+    "label": "怒江",
+    "value": 5,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 5,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "昭通",
+    "value": 63,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 44,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 18,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 1,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "昆明",
+    "value": 151,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 143,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 2,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 6,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "版纳",
+    "value": 26,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 22,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 1,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 3,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "文山",
+    "value": 41,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 35,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 6,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "楚雄",
+    "value": 12,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 11,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 1,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "曲靖",
+    "value": 43,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 40,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 3,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "丽江",
+    "value": 7,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 5,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 2,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "迪庆",
+    "value": 28,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 28,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "普洱",
+    "value": 31,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 23,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 3,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 5,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "玉溪",
+    "value": 237,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 232,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 5,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "德宏",
+    "value": 86,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 85,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 1,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "大理",
+    "value": 32,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 28,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 3,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 1,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "临沧",
+    "value": 103,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 103,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "红河",
+    "value": 51,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 45,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 3,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 3,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
+  },
+  {
+    "label": "保山",
+    "value": 90,
+    "parentId": null,
+    "children": [
+      {
+        "label": "预警基站",
+        "value": 88,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "故障基站",
+        "value": 2,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/隐患基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "预警/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "隐患/故障基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "综合问题基站",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "备件",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "物料",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      },
+      {
+        "label": "配套",
+        "value": 0,
+        "parentId": null,
+        "children": []
+      }
+    ]
   }
 ]
