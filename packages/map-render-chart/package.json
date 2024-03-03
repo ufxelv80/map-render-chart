@@ -1,7 +1,7 @@
 {
   "name": "map-render-chart",
-  "version": "0.0.4",
-  "description": "",
+  "version": "0.0.8",
+  "description": "map-render-chart",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "index.d.ts",
@@ -10,35 +10,18 @@
     "types",
     "index.d.ts"
   ],
-  "scripts": {
-    "build": "node build/build.js --min --format esm,iife",
-    "build:esm": "node build/build.js --type all --min --format esm",
-    "build:i18n": "node build/build-i18n.js",
-    "build:lib": "node build/build.js --prepublish",
-    "build:extension": "node build/build.js --type extension",
-    "dev:fast": "node build/build-i18n.js && node build/dev-fast.js",
-    "dev": "npx -y concurrently -n build,server \"npm run dev:fast\" \"npx -y http-server -c-1 -s -o test\"",
-    "prepublish": "npm run build:lib",
-    "release": "npm run build:lib && npm run build:i18n && npm run build && npm run build:esm && npm run build:extension",
-    "help": "node build/build.js --help",
-    "test:visual": "node test/runTest/server.js",
-    "test": "npx jest --config test/ut/jest.config.js",
-    "test:single": "npx jest --config test/ut/jest.config.js --coverage=false -t",
-    "test:single:debug": "npx --node-arg=--inspect-brk jest --runInBand --config test/ut/jest.config.js --coverage=false -t",
-    "test:dts": "node build/testDts.js",
-    "mktest": "node test/build/mktest.js",
-    "mktest:help": "node test/build/mktest.js -h",
-    "checktype": "tsc --noEmit",
-    "lint": "npx eslint src/**/*.ts extension-src/**/*.ts",
-    "lint:fix": "npx eslint --fix src/**/*.ts extension-src/**/*.ts",
-    "lint:dist": "echo 'It might take a while. Please wait ...' && npx jshint --config .jshintrc-dist dist/echarts.js"
-  },
+  "scripts": {},
   "keywords": [
     "map",
     "geoJson",
     "chart"
   ],
-  "author": "",
+  "author": "WANG JIAN",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ufxelv80/map-render-chart.git",
+    "directory": "map-render-chart"
+  },
   "license": "ISC",
   "dependencies": {
     "zrender": "5.4.1"
