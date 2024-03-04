@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@preact/preset-vite": "^2.7.0",
+    "@vitejs/plugin-vue": "^5.0.4",
     "map-render-chart": "workspace:*",
     "sass": "^1.69.5",
     "vite": "^5.0.8",
@@ -19,6 +20,9 @@
   },
   "dependencies": {
     "@turf/turf": "^6.5.0",
-    "echarts": "^5.5.0"
+    "echarts": "^5.5.0",
+    "use-request": "^0.1.4",
+    "vue": "^3.4.21",
+    "vue-request": "^2.0.4"
   }
 }

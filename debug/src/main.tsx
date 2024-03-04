@@ -54,7 +54,12 @@ async function initMap() {
   map.setMapBoundBoxStyle({
     stroke: '#1BFFFF',
     lineWidth: 3,
-    lineJoin: 'round'
+    lineJoin: 'round',
+
+    // lineWidth: 4,
+    shadowColor: 'rgba(27, 255, 255, 0.6)',
+    shadowBlur: 10,
+    shadowOffsetX: -2
   })
 
   ;['#00f', '#0f0', '#f00'].forEach((color, index) => {
@@ -89,16 +94,16 @@ async function initMap() {
     // })
   })
 
-  map.on('mousemove', (e: MapElementEvent) => {
-    map.addTooltip(() => {
-      return `<div class='wrapper' style="color: #ff0">
-      <span>${e.metadata.properties.name} - ${ e.metadata.properties.adcode }</span>
-    </div>`
-    }, {
-      top: e.offsetY,
-      left: e.offsetX
-    })
-  })
+  // map.on('mousemove', (e: MapElementEvent) => {
+  //   map.addTooltip(() => {
+  //     return `<div class='wrapper' style="color: #ff0">
+  //     <span>${e.metadata.properties.name} - ${ e.centroid }</span>
+  //   </div>`
+  //   }, {
+  //     top: e.offsetY,
+  //     left: e.offsetX
+  //   })
+  // })
   const myIcon = new Icon({
     url: staticResourcesURL('logo.png'),
     size: new Size(15, 15)
@@ -111,7 +116,7 @@ async function initMap() {
 
 
   const marker2 = new Marker({
-    center: [103.01016720576924, 24.999276090384615],
+    center: [100.44601990222655, 25.123627034355763],
     geoType: 'geo',
     icon: myIcon,
   })

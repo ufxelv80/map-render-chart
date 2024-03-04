@@ -146,7 +146,6 @@ class Map {
    * */
   _setupCanvas(): void {
     const myZr = zrender.init(this._container)
-    myZr.dom.style.background = '#eaeaea'
     this._zr = myZr
     this.coordinateAxisGroup = new Group()
     this.group = new Group({
