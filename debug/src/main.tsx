@@ -4,7 +4,7 @@ import '../../packages/map-render-chart/src/style/index.css'
 import {MapData, MapElementEvent} from "map-render-chart/src/typing/Map";
 import {staticResourcesURL} from "@/utils";
 import axios from 'axios'
-import {AdministrativeAreaGeoJson, BoundGeoJson} from "map-render-chart/src/typing/GeoJson";
+import {AdministrativeAreaGeoJson, BoundGeoJson} from "map-render-chart";
 import mapData from './data'
 
 let adcode = 530000
@@ -19,6 +19,16 @@ function getBoundJsonData() {
 
 async function initJson() {
   return await Promise.all([getFullJsonData()])
+}
+
+const React = {
+  createElement: (tag: string, props: any, ...children: any[]) => {
+    return {
+      tag,
+      props: props || {},
+      children
+    }
+  }
 }
 
 async function initMap() {
@@ -94,16 +104,12 @@ async function initMap() {
     // })
   })
 
-  // map.on('mousemove', (e: MapElementEvent) => {
-  //   map.addTooltip(() => {
-  //     return `<div class='wrapper' style="color: #ff0">
-  //     <span>${e.metadata.properties.name} - ${ e.centroid }</span>
-  //   </div>`
-  //   }, {
-  //     top: e.offsetY,
-  //     left: e.offsetX
-  //   })
-  // })
+  map.on('mousemove', (e: MapElementEvent) => {
+    map.addTooltip(() => <div>123</div>, {
+      top: e.offsetY,
+      left: e.offsetX
+    })
+  })
   const myIcon = new Icon({
     url: staticResourcesURL('logo.png'),
     size: new Size(15, 15)

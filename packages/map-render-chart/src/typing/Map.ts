@@ -47,11 +47,23 @@ type ZRenderElement = ZRElement & ({
   attr(value: any): void
 })
 
-export type MapElementEvent = ElementEvent & { metadata: Features, centroid: [number, number]}
-// export interface MapEventParams {
-//   event: MapElementEvent
-//   target: Features
-// }
+export interface MapElement extends ZRElement {
+  data: MapData
+}
+
+export type MapElementEvent = ElementEvent & {
+  metadata: Features,
+  target: MapElement
+  centroid: [number, number]
+  event: {
+    "isTrusted": boolean
+    "zrX": number
+    "zrY": number
+    "zrDelta": number
+    pageX: number
+    pageY: number
+  }
+}
 
 export interface AddTooltipOptions {
   top?: number

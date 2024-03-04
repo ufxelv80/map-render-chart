@@ -30,7 +30,6 @@ import Circle from "zrender/lib/graphic/shape/Circle";
 import InitMapEvent from "./init-map-event";
 import ZRImage from "zrender/lib/graphic/Image";
 import {getCurrentMapName} from "../util/province-city-county-name";
-import {isNumber} from "../util/util";
 
 const defaultOptions: {
   zoom: number
@@ -69,6 +68,8 @@ class Map {
   private label: Label
   private currentScale: number
   private showMapBg: boolean = false
+  // 初始样式
+  private _initStyle: PathStyleProps = {}
 
   constructor(options: MapOptions) {
     options = Object.assign({}, defaultOptions, options)
@@ -107,6 +108,7 @@ class Map {
       },
       level: options.boundBox?.level ? options.boundBox?.level : options.level ? options.level + 1 : 2
     }
+    this._initStyle = options.style || {}
     this._setupCanvas()
     // this._init()
   }
@@ -303,26 +305,36 @@ class Map {
     }
     this.data = data
     this.dataColor = color
-    this.data.length > 0 && this.addMapData()
+    this.addMapData()
   }
 
   addMapData () {
     const maxValue = Math.max(...this.data.map(item => item.value))
-    this.data.forEach(item => {
-      const child = this.group.children().find(child => (child as CustomElement)['mapName'] === item.name) as ZRElement & { style: PathStyleProps, data: MapData }
-      if (!child) {
-        warn(`Map name ${item.name} not found`)
-      }
-      child.data = item
-      if (item.style) {
-        child && child.attr('style' as Parameters<typeof child.attr>[0], item.style as Parameters<typeof child.attr>[1])
-      } else {
-        const currentStyle = child.style
-        const currentColor = calculateOpacityAndGradientColor(maxValue, item.value, this.dataColor[0], this.dataColor[1])
-        currentStyle.fill = rgbaToHex(currentColor)
-        child && child.attr('style' as Parameters<typeof child.attr>[0], currentStyle as Parameters<typeof child.attr>[1])
-      }
-    })
+    if (this.data && this.data.length === 0) {
+      this.group.eachChild((child) => {
+        if (child.type === 'map') {
+          child && child.attr('style' as Parameters<typeof child.attr>[0], this._initStyle as Parameters<typeof child.attr>[1])
+        }
+      })
+    } else if (this.data && this.data.length > 0) {
+      this.data.forEach(item => {
+        const child = this.group.children().find(child => (child as CustomElement)['mapName'] === item.name) as ZRElement & { style: PathStyleProps, data: MapData }
+        if (!child) {
+          warn(`Map name ${item.name} not found`)
+        }
+        child.data = item
+        if (item.style) {
+          child && child.attr('style' as Parameters<typeof child.attr>[0], item.style as Parameters<typeof child.attr>[1])
+        } else {
+          const currentStyle = child.style
+          const currentColor = calculateOpacityAndGradientColor(maxValue, item.value, this.dataColor[0], this.dataColor[1])
+          currentStyle.fill = rgbaToHex(currentColor)
+          child && child.attr('style' as Parameters<typeof child.attr>[0], currentStyle as Parameters<typeof child.attr>[1])
+        }
+      })
+    } else {
+      throwError('data is required')
+    }
   }
 
   getChildOfField(name: string, field: keyof CustomElement) {
@@ -496,6 +508,7 @@ class Map {
     if (!this._mapGeoJsonBound || !this._mapGeoJsonFull) {
       throwError('Map is not registrationComplete. 【registerMap】 method must be called before setting style')
     }
+    this._initStyle = style || {}
     this._style = style
     this.group.children().forEach((item) => {
       if (item.type === 'map') {

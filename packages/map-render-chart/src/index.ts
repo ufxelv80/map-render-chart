@@ -5,6 +5,13 @@ import Size from './ui/size'
 import {useSetupRenderer} from "./util/hooks";
 import {CanvasRenderer} from "./renderer/canvasRender";
 import { drawLine } from './test/testRender'
+export * from './typing/GeoJson'
+export * from './typing/Icon'
+export * from './typing/InitMapEvent'
+export * from './typing/Label'
+export * from './typing/Map'
+export * from './typing/Marker'
+export * from './typing/Size'
 
 useSetupRenderer([CanvasRenderer])
 const mapRenderGL = {

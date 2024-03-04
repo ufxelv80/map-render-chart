@@ -7,11 +7,12 @@
 </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="tsx">
 import { ref, nextTick } from 'vue'
-import { Map } from 'map-render-chart'
+import { Map } from '../../packages/map-render-chart/src/index'
 import {AdministrativeAreaGeoJson} from "map-render-chart/src/typing/GeoJson";
 import axios from "axios";
+import Home from './Home.vue'
 
 defineOptions({
   name: 'App'
@@ -31,6 +32,14 @@ function initMap (json: AdministrativeAreaGeoJson) {
     level: 3
   })
   map.registerMap(json, '云南')
+
+  map.on('mousemove', (e) => {
+    console.log(e)
+    map.addTooltip(() => `<div>1111</div>`, {
+      offsetX: e.event.pageX,
+      offsetY: e.event.pageY
+    })
+  })
 }
 
 window.addEventListener('resize', () => {
