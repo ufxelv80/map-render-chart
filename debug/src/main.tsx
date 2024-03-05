@@ -1,5 +1,5 @@
-// import { Map, Marker, Icon, Size } from "map-render-chart"
-import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
+import { Map, Marker, Icon, Size, getCurrentMapName } from "map-render-chart"
+// import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
 import '../../packages/map-render-chart/src/style/index.css'
 import {MapData, MapElementEvent} from "map-render-chart/src/typing/Map";
 import {staticResourcesURL} from "@/utils";

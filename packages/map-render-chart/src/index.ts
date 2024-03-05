@@ -5,6 +5,7 @@ import Size from './ui/size'
 import {useSetupRenderer} from "./util/hooks";
 import {CanvasRenderer} from "./renderer/canvasRender";
 import { drawLine } from './test/testRender'
+import { getCurrentMapName } from './util/province-city-county-name'
 export * from './typing/GeoJson'
 export * from './typing/Icon'
 export * from './typing/InitMapEvent'
@@ -28,7 +29,8 @@ export {
   Marker,
   Icon,
   Size,
-  drawLine
+  drawLine,
+  getCurrentMapName
 }
 
 
