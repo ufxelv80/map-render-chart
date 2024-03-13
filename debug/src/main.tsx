@@ -1,14 +1,13 @@
-import { Map, Marker, Icon, Size, getCurrentMapName } from "map-render-chart"
-// import {Marker, Map, Icon, Size} from "../../packages/map-render-chart/src/index";
+import { Map, Marker, Icon, Size, getCurrentMapName, LinearGradient, administrativeDivisionTree } from "map-render-chart"
+// import {Marker, Map, Icon, Size, LinearGradient, getCurrentMapName, administrativeDivisionTree} from "../../packages/map-render-chart/src/index";
 import '../../packages/map-render-chart/src/style/index.css'
 import {MapData, MapElementEvent} from "map-render-chart/src/typing/Map";
 import {staticResourcesURL} from "@/utils";
 import axios from 'axios'
-import {AdministrativeAreaGeoJson, BoundGeoJson} from "map-render-chart";
+import type {AdministrativeAreaGeoJson, BoundGeoJson} from "map-render-chart";
 import mapData from './data'
 
 let adcode = 530000
-
 function getFullJsonData() {
   return axios.get('https://geo.datav.aliyun.com/areas_v3/bound/' + adcode + '_full.json')
 }
@@ -19,16 +18,6 @@ function getBoundJsonData() {
 
 async function initJson() {
   return await Promise.all([getFullJsonData()])
-}
-
-const React = {
-  createElement: (tag: string, props: any, ...children: any[]) => {
-    return {
-      tag,
-      props: props || {},
-      children
-    }
-  }
 }
 
 async function initMap() {
@@ -80,8 +69,8 @@ async function initMap() {
         lineJoin: 'round',
       },
       offset: {
-        x: index * 5 + 10,
-        y: index * 2 + 5,
+        x: index * 2 + 5,
+        y: index * 5 + 5,
       },
       level: -index
     })
@@ -105,7 +94,7 @@ async function initMap() {
   })
 
   map.on('mousemove', (e: MapElementEvent) => {
-    map.addTooltip(() => <div>123</div>, {
+    map.addTooltip(() => `<div style="color: #f00">${JSON.stringify(e.centroid)}</div>`, {
       top: e.offsetY,
       left: e.offsetX
     })
@@ -117,14 +106,34 @@ async function initMap() {
   const marker = new Marker({
     center: [100.2864007892954, 22.792575054878046],
     geoType: 'geo',
-    icon: myIcon,
+    style: {
+      fill: new LinearGradient(0, 0, 0, 1, [
+        {offset: 0, color: '#f00'},
+        {offset: 1, color: '#00f'}
+      ], false),
+      stroke: '#f00',
+      lineWidth: 1
+    },
+    size: new Size(25, 25),
+    // icon: myIcon,
+  })
+
+  marker.on('click', function (e) {
+    console.log(e)
   })
 
 
   const marker2 = new Marker({
     center: [100.44601990222655, 25.123627034355763],
     geoType: 'geo',
-    icon: myIcon,
+    icon: new Icon({
+      url: staticResourcesURL('icon-4.png'),
+      size: new Size(30, 30)
+    }),
+  })
+
+  marker2.on('click', (e) => {
+    console.log(e)
   })
 
   map.addMarker(marker, marker2)
@@ -133,23 +142,25 @@ async function initMap() {
     map.removeTooltip('hide')
   })
 
-  // map.addMapLabel({
-  //   style: {
-  //     fill: '#1BFFFF',
-  //     fontSize: 13,
-  //   }
-  // }, (target) => {
-  //   // console.log(target)
-  //   if (target.abbreviation === '怒江') {
-  //     target.setPosition(0, 10)
-  //   }
-  //   if (target.abbreviation === '迪庆') {
-  //     target.setPosition(0, 5)
-  //   }
-  //   if (target.abbreviation === '临沧') {
-  //     target.setPosition(0, 2)
-  //   }
-  // })
+  map.setBackgroundColor('#ccc')
+
+  map.addMapLabel({
+    style: {
+      fill: '#1BFFFF',
+      fontSize: 13,
+    }
+  }, (target) => {
+    // console.log(target)
+    if (target.abbreviation === '怒江') {
+      target.setPosition(0, 10)
+    }
+    if (target.abbreviation === '迪庆') {
+      target.setPosition(0, 5)
+    }
+    if (target.abbreviation === '临沧') {
+      target.setPosition(0, 2)
+    }
+  })
 
   // map.hideMapName()
 

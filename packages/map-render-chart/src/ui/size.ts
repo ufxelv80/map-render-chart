@@ -1,4 +1,4 @@
-import {SizeOptions} from "../typing/Size";
+import {SizeOptions} from "../typing";
 
 class Size {
   private readonly _width: number

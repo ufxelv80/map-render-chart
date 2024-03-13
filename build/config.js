@@ -22,7 +22,7 @@ function createOutputs(basename, { min }, commonOutputOpts) {
   const output = [{
     ...commonOutputOpts,
     // Disable sourcemap in
-    sourcemap: true,
+    sourcemap: false,
     plugins: [
       createReplacePlugin('development')
       // createAddLicensePlugin(true)
@@ -34,7 +34,7 @@ function createOutputs(basename, { min }, commonOutputOpts) {
     output.push({
       ...commonOutputOpts,
       // Disable sourcemap in min file.
-      sourcemap: true,
+      sourcemap: false,
       // TODO preamble
       plugins: [
         createReplacePlugin('production'),
@@ -66,7 +66,7 @@ function createMap (opt = {}) {
       nodePath.resolve(rootPath, `dist/index${fileFix}`),
       opt,
       {
-        name: 'mapRenderGL',
+        name: 'mapRenderChart',
         // Ignore default exports, which is only for compitable code like:
         // import echarts from 'echarts/lib/echarts';
         exports: 'named',

@@ -1,5 +1,5 @@
-import * as MapRenderGL from './types/src/index';
+import * as MapRenderChart from './types/src/index';
 export * from './types/src/index';
 // Export for UMD module.
-export as namespace MapRenderGL;
-export = MapRenderGL;
+export as namespace MapRenderChart;
+export = MapRenderChart;

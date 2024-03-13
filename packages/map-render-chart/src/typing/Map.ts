@@ -101,6 +101,8 @@ export interface MapNameFull {
   abbreviation: string
   abbreviation2?: string
   children?: MapNameFull[]
+  center: number[]
+  centroid: number[]
 }
 
 export interface ShowMapNameParams {

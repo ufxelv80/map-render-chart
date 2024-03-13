@@ -4,8 +4,9 @@ import Icon from './ui/icon'
 import Size from './ui/size'
 import {useSetupRenderer} from "./util/hooks";
 import {CanvasRenderer} from "./renderer/canvasRender";
-import { drawLine } from './test/testRender'
-import { getCurrentMapName } from './util/province-city-county-name'
+import { getCurrentMapName, mapName as administrativeDivisionTree } from './util/province-city-county-name'
+import LinearGradient from "zrender/lib/graphic/LinearGradient";
+
 export * from './typing/GeoJson'
 export * from './typing/Icon'
 export * from './typing/InitMapEvent'
@@ -15,22 +16,25 @@ export * from './typing/Marker'
 export * from './typing/Size'
 
 useSetupRenderer([CanvasRenderer])
-const mapRenderGL = {
+const mapRenderChart = {
   Map,
   Marker,
   Icon,
-  Size
+  Size,
+  LinearGradient,
+  administrativeDivisionTree
 }
 
-export default mapRenderGL
+export default mapRenderChart
 
 export {
   Map,
   Marker,
   Icon,
   Size,
-  drawLine,
-  getCurrentMapName
+  LinearGradient,
+  getCurrentMapName,
+  administrativeDivisionTree
 }
 
 

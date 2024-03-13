@@ -5,12 +5,12 @@ import {
   MapData,
   MapElementEvent,
   MapEventKey,
-  MapEventType, MapNameFull,
+  MapEventType,
   MapOptions,
   MapProjectionLayerConfig, ShowMapNameParams
-} from '../typing/Map'
+} from '../typing'
 import Transform from '../geo/transform'
-import {AdministrativeAreaGeoJson, BoundGeoJson, Features} from '../typing/GeoJson'
+import {AdministrativeAreaGeoJson, BoundGeoJson, Features} from '../typing'
 import {
   calculateOpacityAndGradientColor,
   createElement,
@@ -578,12 +578,16 @@ class Map {
    * */
   addLabel(label: string, style: PathStyleProps): void {}
 
+  setBackgroundColor (color: string | number) {
+    this._zr.dom.style.backgroundColor = typeof color === 'number' ? `#${color.toString(16)}` : color
+  }
+
   on(event: MapEventKey, listener: (event: MapElementEvent) => void): void {
     if (listener === undefined) {
-      throw new Error('listener must be a function')
+      throwError('listener must be a function')
     }
     if (listener && typeof listener !== 'function') {
-      throw new Error('listener must be a function')
+      throwError('listener must be a function')
     }
     if (event === 'resize') {
       this.resize()
