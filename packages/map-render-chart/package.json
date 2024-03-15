@@ -1,6 +1,6 @@
 {
   "name": "map-render-chart",
-  "version": "0.1.3",
+  "version": "0.1.7",
   "description": "map-render-chart",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -9,7 +9,7 @@
     "dist",
     "types",
     "index.d.ts",
-    "../README.md"
+    "README.md"
   ],
   "scripts": {},
   "keywords": [

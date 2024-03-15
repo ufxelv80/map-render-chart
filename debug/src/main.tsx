@@ -33,7 +33,7 @@ async function initMap() {
     }
   })
 
-  map.registerMap(res[0].data as AdministrativeAreaGeoJson, 530000)
+  map.registerMap(res[0].data as AdministrativeAreaGeoJson, adcode)
 
   map.setMapZoom({
     minZoom: 0.1,
@@ -104,7 +104,7 @@ async function initMap() {
     size: new Size(15, 15)
   })
   const marker = new Marker({
-    center: [100.2864007892954, 22.792575054878046],
+    center: [101.57953199853587, 25.26389603989751],
     geoType: 'geo',
     style: {
       fill: new LinearGradient(0, 0, 0, 1, [
@@ -115,7 +115,7 @@ async function initMap() {
       lineWidth: 1
     },
     size: new Size(25, 25),
-    // icon: myIcon,
+    icon: myIcon,
   })
 
   marker.on('click', function (e) {
@@ -136,7 +136,7 @@ async function initMap() {
     console.log(e)
   })
 
-  map.addMarker(marker, marker2)
+  map.addMarker(marker)
 
   map.on('mouseout', () => {
     map.removeTooltip('hide')
@@ -144,23 +144,23 @@ async function initMap() {
 
   map.setBackgroundColor('#ccc')
 
-  map.addMapLabel({
-    style: {
-      fill: '#1BFFFF',
-      fontSize: 13,
-    }
-  }, (target) => {
-    // console.log(target)
-    if (target.abbreviation === '怒江') {
-      target.setPosition(0, 10)
-    }
-    if (target.abbreviation === '迪庆') {
-      target.setPosition(0, 5)
-    }
-    if (target.abbreviation === '临沧') {
-      target.setPosition(0, 2)
-    }
-  })
+  // map.addMapLabel({
+  //   style: {
+  //     fill: '#1BFFFF',
+  //     fontSize: 13,
+  //   }
+  // }, (target) => {
+  //   // console.log(target)
+  //   if (target.abbreviation === '怒江') {
+  //     target.setPosition(0, 10)
+  //   }
+  //   if (target.abbreviation === '迪庆') {
+  //     target.setPosition(0, 5)
+  //   }
+  //   if (target.abbreviation === '临沧') {
+  //     target.setPosition(0, 2)
+  //   }
+  // })
 
   // map.hideMapName()
 
@@ -169,7 +169,8 @@ async function initMap() {
   window.addEventListener('resize', () => {
     map.resize()
   })
-  handleMapData(map)
+  console.log(getCurrentMapName('云南'))
+  // handleMapData(map)
 }
 
 // 处理地图数据

@@ -1,4 +1,56 @@
-# mapRenderChart [![npm](https://img.shields.io/badge/npm-0.1.3-red)](https://www.npmjs.com/package/map-render-chart)
+# mapRenderChart [![npm](https://img.shields.io/badge/npm-0.1.6-red)](https://www.npmjs.com/package/map-render-chart)
+
+### 快速上手
+#### 安装
+```shell
+npm install map-render-chart
+or
+yarn add map-render-chart
+or
+pnpm install map-render-chart
+```
+
+#### 使用
+```javascript
+import Map from 'map-render-chart';
+const geoJson = {
+  ...
+}
+const map = new Map({
+  container: 'container'
+});
+
+map.registerMap(geoJson, '100000');
+```
+
+#### 通过 CDN 使用
+```javascript
+// 引入 map-render-chart
+<script src="https://unpkg.com/map-render-chart@0.1.7/dist/index.global.js"></script>
+
+<div id="container" style="width: 500px; height: 500px"></div>
+
+const geoJson = {
+  ...
+}
+
+const { Map } = mapRenderChart
+
+function initMap () {
+  map = new Map({
+    container: 'map'
+  })
+
+  map.registerMap(geoJson, 100000)
+}
+
+initMap()
+```
+
+### 演示
+[在线演示](https://codesandbox.io/p/devbox/p3j76k?file=%2Fsrc%2Findex.js%3A12%2C25)
+
+<iframe src="https://p3j76k-1234.csb.app/" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="devbox"></iframe>
 
 ### Map 实例参数
 <table>

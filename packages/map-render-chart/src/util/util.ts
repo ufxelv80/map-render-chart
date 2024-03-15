@@ -1,7 +1,7 @@
 import { ZRenderType } from 'zrender'
 import * as zrender from 'zrender'
 import Path, {PathProps} from "zrender/lib/graphic/Path";
-import {BoundGeoJson} from "../typing/GeoJson";
+import {BoundGeoJson} from "../typing";
 export function createElement<T extends keyof HTMLElementTagNameMap> (type: T, className?: string, container?: HTMLElement): HTMLElementTagNameMap[T] {
   const el = document.createElement(type)
   if (className) el.className = className

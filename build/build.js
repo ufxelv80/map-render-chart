@@ -123,6 +123,12 @@ function run () {
       const newFileData = fileData.replace(/\s*/g, '')
       fs.writeFileSync(distPath, newFileData, { encoding: 'utf-8' })
     })
+
+    // 拷贝根目录下的 README.md 文件到 map-render-chart 目录下
+    const readmePath = path.resolve(__dirname, '../README.md')
+    const distReadmePath = path.resolve(__dirname, '../packages/map-render-chart/README.md')
+    const readmeData = fs.readFileSync(readmePath, { encoding: 'utf-8' })
+    fs.writeFileSync(distReadmePath, readmeData, { encoding: 'utf-8' })
   })
 }
 async function main () {

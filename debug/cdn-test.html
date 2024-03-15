@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://unpkg.com/map-render-chart@0.1.7/dist/index.global.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.5.0/axios.js"></script>
+</head>
+<body>
+<div class="map" style="width: 500px; height: 500px"></div>
+
+<script type="module">
+
+  const { Map } = mapRenderChart
+
+  let adcode = 530000
+
+  let map
+  async function getFullJsonData() {
+    const res = await axios.get('https://geo.datav.aliyun.com/areas_v3/bound/' + adcode + '_full.json')
+    initMap(res.data)
+  }
+
+  function initMap (json) {
+    map = new Map({
+      container: document.getElementsByTagName('div')[0]
+    })
+
+    map.registerMap(json, '云南')
+  }
+
+  getFullJsonData()
+</script>
+</body>
+</html>
