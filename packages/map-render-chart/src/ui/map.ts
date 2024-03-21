@@ -30,6 +30,7 @@ import Circle from "zrender/lib/graphic/shape/Circle";
 import InitMapEvent from "./init-map-event";
 import ZRImage from "zrender/lib/graphic/Image";
 import {getCurrentMapName} from "../util/province-city-county-name";
+import type BezierCurve from "./bezier-curve";
 
 const defaultOptions: {
   zoom: number
@@ -79,7 +80,7 @@ class Map {
     this._scale = options.zoom
 
     if (typeof options.container === 'string') {
-      this._container = window.document.getElementById(options.container)
+      this._container = window.document.querySelector(options.container)
 
       if (!this._container) {
         throwError(`Container '${options.container}' not found.`)
@@ -123,7 +124,7 @@ class Map {
     this._init()
   }
 
-  _init(): void {
+  private _init(): void {
     this._renderMap()
     this.mapMoveEvent = new InitMapEvent({
       zr: this._zr,
@@ -146,7 +147,7 @@ class Map {
   /**
    * 安装画布
    * */
-  _setupCanvas(): void {
+  private _setupCanvas(): void {
     const myZr = zrender.init(this._container)
     this._zr = myZr
     this.coordinateAxisGroup = new Group()
@@ -180,7 +181,7 @@ class Map {
    * 更新地图状态
    * @param state {{scale: number, offsetX: number, offsetY: number}}
    * */
-  _updateMapState(state: {
+  private _updateMapState(state: {
     scale: number
     offsetX: number
     offsetY: number
@@ -191,7 +192,7 @@ class Map {
     this.currentScale = state.scale
   }
 
-  _renderMap() {
+  private _renderMap() {
     this.group.removeAll()
     this._mapGeoJsonFull && this._mapGeoJsonFull.features.forEach(feature => {
       feature.geometry.coordinates.forEach(coords => {
@@ -231,7 +232,7 @@ class Map {
     this.mapBgOpt = opt
     this._initMapBackground()
   }
-  _initMapBackground() {
+  private _initMapBackground() {
     let BoundBox: ReturnType<typeof createPolygon>
     BoundBox = createPolygon({
       type: 'bg',
@@ -267,7 +268,7 @@ class Map {
   }
 
   // 实例化 Map
-  _instantiateMap(feature: Features, coord: number[]) {
+  private _instantiateMap(feature: Features, coord: number[]) {
     const style = this._style || {
       fill: '#fff',
       stroke: '#ccc',
@@ -305,10 +306,10 @@ class Map {
     }
     this.data = data
     this.dataColor = color
-    this.addMapData()
+    this._addMapData()
   }
 
-  addMapData () {
+  private _addMapData () {
     const maxValue = Math.max(...this.data.map(item => item.value))
     if (this.data && this.data.length === 0) {
       this.group.eachChild((child) => {
@@ -348,7 +349,7 @@ class Map {
   }
 
   // 绘制地图中心点
-  _drawCenterPoint(): void {
+  private _drawCenterPoint(): void {
     const Rect = this.group.getBoundingRect()
 
     // 地图中心点
@@ -373,7 +374,7 @@ class Map {
     this.group.add(circle)
   }
 
-  _renderBoundBox() {
+  private _renderBoundBox() {
     if (!this._mapGeoJsonBound) return
 
     this._mapAddLayer('boundBox', {
@@ -387,7 +388,7 @@ class Map {
     this._auxiliaryLine && this._drawCenterPoint()
   }
 
-  addEventListener(type: MapEventKey, map: Path<PathProps>, feature: Features): void {
+  private addEventListener(type: MapEventKey, map: Path<PathProps>, feature: Features): void {
     map.on(type, (e: MapElementEvent) => {
       const {lng, lat} = this.transform.reverseCalculateOffset(
         this._scale,
@@ -422,7 +423,7 @@ class Map {
     for (const marker of this._markers) {
       marker.update()
     }
-    this.data.length > 0 && this.addMapData()
+    this.data.length > 0 && this._addMapData()
     this.label && this.label.resize()
   }
 
@@ -453,8 +454,7 @@ class Map {
 
   addMarker(...markers: Marker[]): void {
     markers.forEach((marker) => {
-      this._markers.push(marker)
-      marker._createMarker(this.transform, this._scale, this.group)
+      marker._createMarker(this.transform, defaultOptions.zoom, this.group)
     })
   }
 
@@ -468,7 +468,7 @@ class Map {
     })
   }
 
-  _drawProjectionLayer(opt: MapProjectionLayerConfig) {
+  private _drawProjectionLayer(opt: MapProjectionLayerConfig) {
     const pathOpt = {
       x: opt.offset.x,
       y: opt.offset.y,
@@ -481,7 +481,7 @@ class Map {
     this._mapAddLayer('projection', pathOpt)
   }
 
-  _mapAddLayer(name: string, opt: PathProps & {shape: {path: number[]}}): void {
+  private _mapAddLayer(name: string, opt: PathProps & {shape: {path: number[]}}): void {
     const BoundBox = createPolygon({
       type: name,
       callback: (this.transform as Transform).calculateOffset.bind(this.transform, this._scale)
@@ -554,7 +554,7 @@ class Map {
       scale: this._scale,
       fullName: opt.fullName
     })
-    this.label.renderText(callback)
+    this.label._renderText(callback)
   }
 
   hideMapLabel() {
@@ -580,6 +580,10 @@ class Map {
 
   setBackgroundColor (color: string | number) {
     this._zr.dom.style.backgroundColor = typeof color === 'number' ? `#${color.toString(16)}` : color
+  }
+
+  addBezierLine(bezierLine: BezierCurve) {
+    bezierLine._render(this.transform as Transform, this._scale, this.group, this._zr)
   }
 
   on(event: MapEventKey, listener: (event: MapElementEvent) => void): void {

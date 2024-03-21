@@ -1,9 +1,9 @@
-import {CustomText, LabelOptions} from "../typing/Label";
+import {CustomText, LabelOptions} from "../typing";
 import {Group, TextStyleProps} from "zrender";
 import Text from 'zrender/lib/graphic/Text'
 import type Transform from "../geo/transform";
-import {AdministrativeAreaGeoJson} from "../typing/GeoJson";
-import {MapNameFull} from "../typing/Map";
+import {AdministrativeAreaGeoJson} from "../typing";
+import {MapNameFull} from "../typing";
 import ZRText from "zrender/lib/graphic/Text";
 
 class Label {
@@ -30,10 +30,11 @@ class Label {
     this.fullName = options.fullName
   }
 
-  renderText(callback: (target: Label) => void) {
+  _renderText(callback: (target: Label) => void) {
     this.geoJson.features.forEach((feature) => {
       const currentMapName = this.mapFullName.find(item => item.adcode === feature.properties.adcode)
-      const { x, y } = this.transform!.calculateOffset(this._scale, feature.properties.centroid[0], feature.properties.centroid[1])
+      if (!currentMapName) return
+      const { x, y } = this.transform.calculateOffset(this._scale, currentMapName.centroid[0], currentMapName.centroid[1])
       this.abbreviation = currentMapName.abbreviation
       const textStyle = Object.assign({}, {x, y}, this.style)
       this.zrText = new Text({

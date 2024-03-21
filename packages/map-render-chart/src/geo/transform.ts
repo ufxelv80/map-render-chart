@@ -1,4 +1,4 @@
-import {AdministrativeAreaGeoJson, BoundGeoJson} from '../typing/GeoJson'
+import {AdministrativeAreaGeoJson, BoundGeoJson} from '../typing'
 import union from '@turf/union'
 import bbox from '@turf/bbox'
 import {forEachBoundGeoJson} from "../util/util";

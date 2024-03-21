@@ -2,6 +2,7 @@ import Map from './ui/map'
 import Marker from './ui/marker'
 import Icon from './ui/icon'
 import Size from './ui/size'
+import BezierCurveLine from './ui/bezier-curve'
 import {useSetupRenderer} from "./util/hooks";
 import {CanvasRenderer} from "./renderer/canvasRender";
 import { getCurrentMapName, mapName as administrativeDivisionTree } from './util/province-city-county-name'
@@ -22,6 +23,7 @@ const mapRenderChart = {
   Icon,
   Size,
   LinearGradient,
+  BezierCurveLine,
   administrativeDivisionTree
 }
 
@@ -33,6 +35,7 @@ export {
   Icon,
   Size,
   LinearGradient,
+  BezierCurveLine,
   getCurrentMapName,
   administrativeDivisionTree
 }

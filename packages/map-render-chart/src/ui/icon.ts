@@ -1,4 +1,4 @@
-import {IconOptions} from "../typing/Icon";
+import {IconOptions} from "../typing";
 import Rect from "zrender/lib/graphic/shape/Rect";
 import ZRImage from "zrender/lib/graphic/Image";
 

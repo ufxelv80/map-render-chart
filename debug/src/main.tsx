@@ -1,5 +1,5 @@
-import { Map, Marker, Icon, Size, getCurrentMapName, LinearGradient, administrativeDivisionTree } from "map-render-chart"
-// import {Marker, Map, Icon, Size, LinearGradient, getCurrentMapName, administrativeDivisionTree} from "../../packages/map-render-chart/src/index";
+// import { Map, Marker, Icon, Size, getCurrentMapName, LinearGradient, administrativeDivisionTree } from "map-render-chart"
+import {Marker, Map, Icon, Size, LinearGradient, BezierCurveLine, getCurrentMapName, administrativeDivisionTree} from "../../packages/map-render-chart/src/index";
 import '../../packages/map-render-chart/src/style/index.css'
 import {MapData, MapElementEvent} from "map-render-chart/src/typing/Map";
 import {staticResourcesURL} from "@/utils";
@@ -24,7 +24,7 @@ async function initMap() {
   const res = await initJson()
 
   const map = new Map({
-    container: 'app',
+    container: '#app',
     zoom: 0.8,
     level: 3,
     boundBox: {
@@ -78,6 +78,10 @@ async function initMap() {
 
   map.setMapBackground(staticResourcesURL('yn2.png'))
   // map.setMapBackground(staticResourcesURL('1.jpg'))
+  const myIcon = new Icon({
+    url: staticResourcesURL('logo.png'),
+    size: new Size(15, 15)
+  })
 
   map.on('click', async (e: MapElementEvent) => {
     console.log(e)
@@ -91,6 +95,11 @@ async function initMap() {
     //   stroke: 'red',
     //   lineWidth: 1,
     // })
+    const marker = new Marker({
+      center: e.centroid,
+      icon: myIcon,
+    })
+    map.addMarker(marker)
   })
 
   map.on('mousemove', (e: MapElementEvent) => {
@@ -99,23 +108,17 @@ async function initMap() {
       left: e.offsetX
     })
   })
-  const myIcon = new Icon({
-    url: staticResourcesURL('logo.png'),
-    size: new Size(15, 15)
-  })
   const marker = new Marker({
-    center: [101.57953199853587, 25.26389603989751],
+    center: [104.31578424963398, 25.20473382906296],
     geoType: 'geo',
     style: {
       fill: new LinearGradient(0, 0, 0, 1, [
         {offset: 0, color: '#f00'},
         {offset: 1, color: '#00f'}
-      ], false),
-      stroke: '#f00',
-      lineWidth: 1
+      ], false)
     },
     size: new Size(25, 25),
-    icon: myIcon,
+    // icon: myIcon,
   })
 
   marker.on('click', function (e) {
@@ -124,7 +127,7 @@ async function initMap() {
 
 
   const marker2 = new Marker({
-    center: [100.44601990222655, 25.123627034355763],
+    center: [98.28123874450952, 24.391253430087847],
     geoType: 'geo',
     icon: new Icon({
       url: staticResourcesURL('icon-4.png'),
@@ -136,7 +139,7 @@ async function initMap() {
     console.log(e)
   })
 
-  map.addMarker(marker)
+  map.addMarker(marker, marker2)
 
   map.on('mouseout', () => {
     map.removeTooltip('hide')
@@ -144,32 +147,56 @@ async function initMap() {
 
   map.setBackgroundColor('#ccc')
 
-  // map.addMapLabel({
-  //   style: {
-  //     fill: '#1BFFFF',
-  //     fontSize: 13,
-  //   }
-  // }, (target) => {
-  //   // console.log(target)
-  //   if (target.abbreviation === '怒江') {
-  //     target.setPosition(0, 10)
-  //   }
-  //   if (target.abbreviation === '迪庆') {
-  //     target.setPosition(0, 5)
-  //   }
-  //   if (target.abbreviation === '临沧') {
-  //     target.setPosition(0, 2)
-  //   }
-  // })
+  map.addMapLabel({
+    style: {
+      fill: '#1BFFFF',
+      fontSize: 12,
+      fontFamily: '华文行楷',
+    }
+  }, (target) => {
+    // console.log(target)
+    if (target.abbreviation === '怒江') {
+      target.setPosition(0, 10)
+    }
+    if (target.abbreviation === '迪庆') {
+      target.setPosition(0, 5)
+    }
+    if (target.abbreviation === '临沧') {
+      target.setPosition(0, 2)
+    }
+  })
 
   // map.hideMapName()
 
   // map.showMapName()
 
+  const line = new BezierCurveLine({
+    start: [98.28123874450952, 24.391253430087847],
+    end: [104.31578424963398, 25.20473382906296],
+    icon: staticResourcesURL('jiantou.png')
+  })
+
+  map.addBezierLine(line)
+
+  const line2 = new BezierCurveLine({
+    start: [100.91395712664715, 23.903165190702783],
+    end: [104.31578424963398, 25.20473382906296],
+    icon: staticResourcesURL('jiantou.png')
+  })
+
+  map.addBezierLine(line2)
+
+  const line3 = new BezierCurveLine({
+    start: [99.1982530124451, 27.482478946193265],
+    end: [104.31578424963398, 25.20473382906296],
+    icon: staticResourcesURL('jiantou.png')
+  })
+
+  map.addBezierLine(line3)
+
   window.addEventListener('resize', () => {
     map.resize()
   })
-  console.log(getCurrentMapName('云南'))
   // handleMapData(map)
 }
 

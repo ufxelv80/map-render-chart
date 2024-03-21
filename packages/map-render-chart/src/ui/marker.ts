@@ -93,7 +93,7 @@ class Marker {
         width: this._size.width,
         height: this._size.height
       },
-      zlevel: 10,
+      zlevel: 110,
       style: this._style || {
         fill: 'rgba(255, 0, 0, 0.8)',
       }
