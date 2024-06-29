@@ -7,7 +7,7 @@ import axios from 'axios'
 import type {AdministrativeAreaGeoJson, BoundGeoJson} from "map-render-chart";
 import mapData from './data'
 
-let adcode = 530000
+let adcode = 100000
 function getFullJsonData() {
   return axios.get('https://geo.datav.aliyun.com/areas_v3/bound/' + adcode + '_full.json')
 }
@@ -52,7 +52,7 @@ async function initMap() {
 
   map.setMapBoundBoxStyle({
     stroke: '#1BFFFF',
-    lineWidth: 3,
+    lineWidth: 2,
     lineJoin: 'round',
 
     // lineWidth: 4,
@@ -61,7 +61,7 @@ async function initMap() {
     shadowOffsetX: -2
   })
 
-  ;['#00f', '#0f0', '#f00'].forEach((color, index) => {
+  ;['#00f'].forEach((color, index) => {
     map.addProjectionLayer({
       style: {
         fill: color,
@@ -69,8 +69,8 @@ async function initMap() {
         lineJoin: 'round',
       },
       offset: {
-        x: index * 2 + 5,
-        y: index * 5 + 5,
+        x: index * 2 + 10,
+        y: index * 5 + 10,
       },
       level: -index
     })
@@ -171,16 +171,30 @@ async function initMap() {
   // map.showMapName()
 
   const line = new BezierCurveLine({
-    start: [98.28123874450952, 24.391253430087847],
-    end: [104.31578424963398, 25.20473382906296],
+    start: [
+      86.70177002121382,
+      39.792728457076834
+    ],
+    end: [
+      115.05288290370268,
+      23.87141383341314
+    ],
     icon: staticResourcesURL('jiantou.png')
   })
+
+  staticResourcesURL('jiantou.png')
 
   map.addBezierLine(line)
 
   const line2 = new BezierCurveLine({
-    start: [100.91395712664715, 23.903165190702783],
-    end: [104.31578424963398, 25.20473382906296],
+    start: [
+      116.1385030690304,
+      40.17149496905742
+    ],
+    end: [
+      115.05288290370268,
+      23.87141383341314
+    ],
     icon: staticResourcesURL('jiantou.png')
   })
 
@@ -188,11 +202,42 @@ async function initMap() {
 
   const line3 = new BezierCurveLine({
     start: [99.1982530124451, 27.482478946193265],
-    end: [104.31578424963398, 25.20473382906296],
+    end: [
+      115.05288290370268,
+      23.87141383341314
+    ],
     icon: staticResourcesURL('jiantou.png')
   })
 
   map.addBezierLine(line3)
+
+  const line4 = new BezierCurveLine({
+    start: [
+      85.0956724933881,
+      32.25105310902561
+    ],
+    end: [
+      115.05288290370268,
+      23.87141383341314
+    ],
+    icon: staticResourcesURL('jiantou.png')
+  })
+
+  map.addBezierLine(line4)
+
+  const line5 = new BezierCurveLine({
+    start: [
+      127.27319018063753,
+      47.33440380512806
+    ],
+    end: [
+      115.05288290370268,
+      23.87141383341314
+    ],
+    icon: staticResourcesURL('jiantou.png')
+  })
+
+  map.addBezierLine(line5)
 
   window.addEventListener('resize', () => {
     map.resize()
