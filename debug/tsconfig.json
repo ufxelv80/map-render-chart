@@ -12,7 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": "./",
-    "types": ["node", "dayjs"],
+    "types": ["node", "dayjs", "src/env"],
     "paths": {
       "@/*": ["src/*"]
     }

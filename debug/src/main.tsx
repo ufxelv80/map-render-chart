@@ -6,6 +6,16 @@ import {staticResourcesURL} from "@/utils";
 import axios from 'axios'
 import type {AdministrativeAreaGeoJson, BoundGeoJson} from "map-render-chart";
 import mapData from './data'
+import geobuf from 'geobuf'
+import Pbf from 'pbf'
+import pbfJson from './lamp.geobuf.pbf'
+
+function testPbfJson () {
+  console.log(pbfJson)
+  console.log(geobuf.decode(new Pbf(pbfJson.data)))
+  // let geojson = new Uint8Array(pbfJson);
+  // console.log(geojson)
+}
 
 let adcode = 100000
 function getFullJsonData() {
@@ -262,4 +272,5 @@ function handleMapData(map: Map) {
   map.setMapData(data, ['#b5a7f8', '#7734c0'])
 }
 
+testPbfJson()
 initMap()
