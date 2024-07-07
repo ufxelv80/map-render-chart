@@ -189,65 +189,65 @@ async function initMap() {
       115.05288290370268,
       23.87141383341314
     ],
-    icon: staticResourcesURL('jiantou.png')
+    icon: staticResourcesURL('map-icon-car.png')
   })
 
-  staticResourcesURL('jiantou.png')
+  staticResourcesURL('map-icon-car.png')
 
   map.addBezierLine(line)
 
-  const line2 = new BezierCurveLine({
-    start: [
-      116.1385030690304,
-      40.17149496905742
-    ],
-    end: [
-      115.05288290370268,
-      23.87141383341314
-    ],
-    icon: staticResourcesURL('jiantou.png')
-  })
-
-  map.addBezierLine(line2)
-
-  const line3 = new BezierCurveLine({
-    start: [99.1982530124451, 27.482478946193265],
-    end: [
-      115.05288290370268,
-      23.87141383341314
-    ],
-    icon: staticResourcesURL('jiantou.png')
-  })
-
-  map.addBezierLine(line3)
-
-  const line4 = new BezierCurveLine({
-    start: [
-      85.0956724933881,
-      32.25105310902561
-    ],
-    end: [
-      115.05288290370268,
-      23.87141383341314
-    ],
-    icon: staticResourcesURL('jiantou.png')
-  })
-
-  map.addBezierLine(line4)
-
-  const line5 = new BezierCurveLine({
-    start: [
-      127.27319018063753,
-      47.33440380512806
-    ],
-    end: [
-      115.05288290370268,
-      23.87141383341314
-    ],
-    icon: staticResourcesURL('jiantou.png')
-  })
-
-  map.addBezierLine(line5)
+  // const line2 = new BezierCurveLine({
+  //   start: [
+  //     116.1385030690304,
+  //     40.17149496905742
+  //   ],
+  //   end: [
+  //     115.05288290370268,
+  //     23.87141383341314
+  //   ],
+  //   icon: staticResourcesURL('jiantou.png')
+  // })
+  //
+  // map.addBezierLine(line2)
+  //
+  // const line3 = new BezierCurveLine({
+  //   start: [99.1982530124451, 27.482478946193265],
+  //   end: [
+  //     115.05288290370268,
+  //     23.87141383341314
+  //   ],
+  //   icon: staticResourcesURL('jiantou.png')
+  // })
+  //
+  // map.addBezierLine(line3)
+  //
+  // const line4 = new BezierCurveLine({
+  //   start: [
+  //     85.0956724933881,
+  //     32.25105310902561
+  //   ],
+  //   end: [
+  //     115.05288290370268,
+  //     23.87141383341314
+  //   ],
+  //   icon: staticResourcesURL('jiantou.png')
+  // })
+  //
+  // map.addBezierLine(line4)
+  //
+  // const line5 = new BezierCurveLine({
+  //   start: [
+  //     127.27319018063753,
+  //     47.33440380512806
+  //   ],
+  //   end: [
+  //     115.05288290370268,
+  //     23.87141383341314
+  //   ],
+  //   icon: staticResourcesURL('jiantou.png')
+  // })
+  //
+  // map.addBezierLine(line5)
 
   window.addEventListener('resize', () => {
     map.resize()
