@@ -1,6 +1,6 @@
 {
   "name": "map-render-chart",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "map-render-chart",
   "main": "dist/index.js",
   "module": "dist/index.js",

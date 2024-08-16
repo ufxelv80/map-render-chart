@@ -500,8 +500,8 @@ class Map {
     })
   }
 
-  setGeoJson(geoJson: AdministrativeAreaGeoJson) {
-    this.registerMap(geoJson)
+  setGeoJson(geoJson: AdministrativeAreaGeoJson, name: string | number) {
+    this.registerMap(geoJson, name)
   }
 
   setMapStyle(style: PathStyleProps): void {

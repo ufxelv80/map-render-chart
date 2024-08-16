@@ -33,20 +33,20 @@ class Label {
   _renderText(callback: (target: Label) => void) {
     this.geoJson.features.forEach((feature) => {
       const currentMapName = this.mapFullName.find(item => item.adcode === feature.properties.adcode)
-      if (!currentMapName) return
-      const { x, y } = this.transform.calculateOffset(this._scale, currentMapName.centroid[0], currentMapName.centroid[1])
-      this.abbreviation = currentMapName.abbreviation
+      const center = currentMapName ? currentMapName.centroid : feature.properties.centroid
+      const { x, y } = this.transform.calculateOffset(this._scale, center[0], center[1])
+      this.abbreviation = currentMapName ? currentMapName.abbreviation : feature.properties.name
       const textStyle = Object.assign({}, {x, y}, this.style)
       this.zrText = new Text({
         style: {
-          text: this.fullName ? currentMapName.name : currentMapName.abbreviation,
+          text: this.fullName ? feature.properties.name : currentMapName ? currentMapName.abbreviation : feature.properties.name,
           ...textStyle
         },
         zlevel: 10
       }) as CustomText
       this.zrText.centroid = feature.properties.centroid
       this.zrText.type = 'label'
-      this.zrText.name = currentMapName.name
+      this.zrText.name = this.abbreviation
       const rect = this.zrText.getBoundingRect()
       this.zrText.x = -rect.width / 2
       this.zrText.y = -rect.height

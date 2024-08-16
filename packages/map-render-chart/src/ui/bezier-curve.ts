@@ -6,7 +6,9 @@ import ZRImage from 'zrender/lib/graphic/Image'
 import {ZRenderType} from "zrender";
 import {Point} from "../typing/BezierCurve";
 import Polyline from 'zrender/lib/graphic/shape/Polyline'
-import { bearing, point as turfPoint } from '@turf/turf'
+import { point as turfPoint } from '@turf/turf'
+import bearing from '@turf/bearing'
+// import * as turfPoint from '@turf/point-grid'
 
 class BezierCurveLine {
   private readonly start: [number, number];
@@ -76,6 +78,7 @@ class BezierCurveLine {
       }
     })
     group.add(curve);
+    // @ts-ignore
     const icon = this._renderArrow(start);
     group.add(icon);
     this.animateArrow(curve, icon, [start.x, start.y], [end.x, end.y]);
