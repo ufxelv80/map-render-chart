@@ -1,4 +1,4 @@
-// import { Map, Marker, Icon, Size, getCurrentMapName, LinearGradient, administrativeDivisionTree } from "map-render-chart"
+// import { Map, Marker, Icon, BezierCurveLine, Size, getCurrentMapName, LinearGradient, administrativeDivisionTree } from "map-render-chart"
 import {Marker, Map, Icon, Size, LinearGradient, BezierCurveLine, getCurrentMapName, administrativeDivisionTree} from "../../packages/map-render-chart/src/index";
 import '../../packages/map-render-chart/src/style/index.css'
 import {MapData, MapElementEvent} from "map-render-chart/src/typing/Map";
@@ -17,8 +17,8 @@ function testPbfJson () {
   // console.log(geojson)
 }
 
-let adcode = 100000
-function getFullJsonData() {
+let adcode = 530000
+function getFullJsonData(adcode: number | string) {
   return axios.get('https://geo.datav.aliyun.com/areas_v3/bound/' + adcode + '_full.json')
 }
 
@@ -27,7 +27,7 @@ function getBoundJsonData() {
 }
 
 async function initJson() {
-  return await Promise.all([getFullJsonData()])
+  return await Promise.all([getFullJsonData(adcode)])
 }
 
 async function initMap() {
@@ -96,8 +96,23 @@ async function initMap() {
   map.on('click', async (e: MapElementEvent) => {
     console.log(e)
     // adcode = e.metadata.properties.adcode || e.metadata.properties.code
-    // const res = await initJson()
-    // map.setGeoJson(res[0].data as AdministrativeAreaGeoJson)
+    const res = await getFullJsonData(e.metadata.properties.adcode)
+    map.setGeoJson(res.data as AdministrativeAreaGeoJson, e.metadata.properties.adcode)
+    map.setMapBackground(staticResourcesURL('yn2.png'))
+    map.addMapLabel({
+      style: {
+        fill: '#1BFFFF',
+        fontSize: 12,
+        fontFamily: '华文行楷',
+      }
+    }, (target) => {
+      console.log(target.zrText)
+      // target.setStyle({
+      //   ...target.style,
+      //   text: target.abbreviation.substring(0, 2)
+      // })
+      // target.setPosition(0, 0)
+    })
     // // map.setMapBackground(staticResourcesURL('1.jpg'))
     // map.setMapBackground(staticResourcesURL('yn2.png'))
     // map.setMapStyle({
@@ -109,55 +124,56 @@ async function initMap() {
       center: e.centroid,
       icon: myIcon,
     })
-    map.addMarker(marker)
+    // map.addMarker(marker)
   })
 
-  map.on('mousemove', (e: MapElementEvent) => {
-    map.addTooltip(() => `<div style="color: #f00">${JSON.stringify(e.centroid)}</div>`, {
-      top: e.offsetY,
-      left: e.offsetX
-    })
-  })
-  const marker = new Marker({
-    center: [104.31578424963398, 25.20473382906296],
-    geoType: 'geo',
-    style: {
-      fill: new LinearGradient(0, 0, 0, 1, [
-        {offset: 0, color: '#f00'},
-        {offset: 1, color: '#00f'}
-      ], false)
-    },
-    size: new Size(25, 25),
-    // icon: myIcon,
-  })
-
-  marker.on('click', function (e) {
-    console.log(e)
-  })
-
-
-  const marker2 = new Marker({
-    center: [98.28123874450952, 24.391253430087847],
-    geoType: 'geo',
-    icon: new Icon({
-      url: staticResourcesURL('icon-4.png'),
-      size: new Size(30, 30)
-    }),
-  })
-
-  marker2.on('click', (e) => {
-    console.log(e)
-  })
-
-  map.addMarker(marker, marker2)
-
-  map.on('mouseout', () => {
-    map.removeTooltip('hide')
-  })
-
-  map.setBackgroundColor('#ccc')
+  // map.on('mousemove', (e: MapElementEvent) => {
+  //   map.addTooltip(() => `<div style="color: #f00">${JSON.stringify(e.centroid)}</div>`, {
+  //     top: e.offsetY,
+  //     left: e.offsetX
+  //   })
+  // })
+  // const marker = new Marker({
+  //   center: [104.31578424963398, 25.20473382906296],
+  //   geoType: 'geo',
+  //   style: {
+  //     fill: new LinearGradient(0, 0, 0, 1, [
+  //       {offset: 0, color: '#f00'},
+  //       {offset: 1, color: '#00f'}
+  //     ], false)
+  //   },
+  //   size: new Size(25, 25),
+  //   // icon: myIcon,
+  // })
+  //
+  // marker.on('click', function (e) {
+  //   console.log(e)
+  // })
+  //
+  //
+  // const marker2 = new Marker({
+  //   center: [98.28123874450952, 24.391253430087847],
+  //   geoType: 'geo',
+  //   icon: new Icon({
+  //     url: staticResourcesURL('icon-4.png'),
+  //     size: new Size(30, 30)
+  //   }),
+  // })
+  //
+  // marker2.on('click', (e) => {
+  //   console.log(e)
+  // })
+  //
+  // map.addMarker(marker, marker2)
+  //
+  // map.on('mouseout', () => {
+  //   map.removeTooltip('hide')
+  // })
+  //
+  // map.setBackgroundColor('#ccc')
 
   map.addMapLabel({
+    fullName: false,
     style: {
       fill: '#1BFFFF',
       fontSize: 12,
@@ -165,15 +181,15 @@ async function initMap() {
     }
   }, (target) => {
     // console.log(target)
-    if (target.abbreviation === '怒江') {
-      target.setPosition(0, 10)
-    }
-    if (target.abbreviation === '迪庆') {
-      target.setPosition(0, 5)
-    }
-    if (target.abbreviation === '临沧') {
-      target.setPosition(0, 2)
-    }
+    // if (target.abbreviation === '怒江') {
+    //   target.setPosition(0, 10)
+    // }
+    // if (target.abbreviation === '迪庆') {
+    //   target.setPosition(0, 5)
+    // }
+    // if (target.abbreviation === '临沧') {
+    //   target.setPosition(0, 2)
+    // }
   })
 
   // map.hideMapName()

@@ -24,7 +24,9 @@ function createOutputs(basename, { min }, commonOutputOpts) {
     // Disable sourcemap in
     sourcemap: false,
     plugins: [
-      createReplacePlugin('development')
+      createReplacePlugin('development'),
+      
+      commonjs()
       // createAddLicensePlugin(true)
     ],
     file: basename + '.js'
@@ -38,7 +40,8 @@ function createOutputs(basename, { min }, commonOutputOpts) {
       // TODO preamble
       plugins: [
         createReplacePlugin('production'),
-        terser()
+        terser(),
+        commonjs()
         // createAddLicensePlugin(false)
       ],
       file: basename + '.min.js'
@@ -54,7 +57,9 @@ function createMap (opt = {}) {
 
   return {
     plugins: [
-      nodeResolvePlugin()
+      nodeResolvePlugin(),
+      
+      commonjs()
     ],
     treeshake: {
       moduleSideEffects: false

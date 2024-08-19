@@ -9,16 +9,20 @@ import ZRText from "zrender/lib/graphic/Text";
 class Label {
   // public label: string;
   // public abbreviation: string;
-  private readonly geoJson: AdministrativeAreaGeoJson
-  private group: Group
-  private zrText: CustomText
-  private readonly style: TextStyleProps
-  private readonly transform: Transform
-  private readonly mapFullName: MapNameFull[]
-  private readonly _scale: number
+  public readonly geoJson: AdministrativeAreaGeoJson
+  public group: Group
+  public zrText: CustomText
+  public readonly style: TextStyleProps
+  public readonly transform: Transform
+  public readonly mapFullName: MapNameFull[]
+  public readonly _scale: number
   public abbreviation: string
-  private textObjList: CustomText[] = []
-  private readonly fullName: boolean
+  public textObjList: CustomText[] = []
+  public readonly fullName: boolean
+  public position: {
+    x: number
+    y: number
+  }
 
   constructor(options: LabelOptions) {
     this.group = options.group;
@@ -33,8 +37,12 @@ class Label {
   _renderText(callback: (target: Label) => void) {
     this.geoJson.features.forEach((feature) => {
       const currentMapName = this.mapFullName.find(item => item.adcode === feature.properties.adcode)
-      const center = currentMapName ? currentMapName.centroid : feature.properties.centroid
+      const center = feature.properties.centroid || feature.properties.center
       const { x, y } = this.transform.calculateOffset(this._scale, center[0], center[1])
+      this.position = {
+        x,
+        y
+      }
       this.abbreviation = currentMapName ? currentMapName.abbreviation : feature.properties.name
       const textStyle = Object.assign({}, {x, y}, this.style)
       this.zrText = new Text({
@@ -52,8 +60,12 @@ class Label {
       this.zrText.y = -rect.height
       this.group.add(this.zrText)
       this.textObjList.push(this.zrText)
-      callback(this)
+      callback && callback(this)
     })
+  }
+
+  update (style: TextStyleProps) {
+    this.zrText.attr('style', style)
   }
 
   resize() {

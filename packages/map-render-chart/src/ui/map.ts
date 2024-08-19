@@ -540,7 +540,7 @@ class Map {
   /**
    * 显示地图名称
    * */
-  addMapLabel(opt: ShowMapNameParams, callback: (target: Label) => void): void {
+  addMapLabel(opt: ShowMapNameParams, callback?: (target: Label) => void): void {
     if (!this._mapGeoJsonFull || !this._mapGeoJsonBound) {
       throwError('Map is not registrationComplete. 【registerMap】 method must be called before setting style')
     }
